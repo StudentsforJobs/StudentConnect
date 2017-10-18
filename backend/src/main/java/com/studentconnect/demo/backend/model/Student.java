@@ -1,7 +1,8 @@
 package com.studentconnect.demo.backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "students")
@@ -13,11 +14,32 @@ public class Student {
     private String password;
     private String about;
 
-    //add clubs and activities lists here with added tables in db
+    private List<Activity> activities = new ArrayList<>();
+    private List<Club> clubs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
+    }
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    public List<Club> getClubs() {
+        return clubs;
+    }
+
+    public void setClubs(List<Club> clubs) {
+        this.clubs = clubs;
+    }
 
     public Student() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -26,6 +48,7 @@ public class Student {
         this.id = id;
     }
 
+    @Column(name = "firstname")
     public String getFirstName() {
         return firstName;
     }
@@ -34,6 +57,7 @@ public class Student {
         this.firstName = firstName;
     }
 
+    @Column(name = "lastname")
     public String getLastName() {
         return lastName;
     }
