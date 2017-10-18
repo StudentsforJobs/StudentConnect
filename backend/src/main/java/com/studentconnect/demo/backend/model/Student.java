@@ -1,5 +1,10 @@
 package com.studentconnect.demo.backend.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "students")
 public class Student {
     private int id;
     private String firstName;
@@ -7,6 +12,8 @@ public class Student {
     private String userName;
     private String password;
     private String about;
+
+    //add clubs and activities lists here with added tables in db
 
     public Student() {
     }
