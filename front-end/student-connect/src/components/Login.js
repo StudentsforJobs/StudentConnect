@@ -13,8 +13,12 @@ _validateForm(){
   return this.state.username.length > 0 && this.state.password.length > 0;
 }
 
-_handleChange = (evt) => {
-  this.setState({[evt.target.id]: evt.target.value})
+_handleUsernameChange = (evt) => {
+  this.setState({username: evt.target.value})
+}
+
+_handlePasswordChange = (evt) => {
+  this.setState({password: evt.target.value})
 }
 
 _onSubmit= (evt) => {
@@ -22,42 +26,34 @@ _onSubmit= (evt) => {
   // const userLogin = {
   //   username: this.state.username,
   //   password: this.state.password
+// }
   }
 
 
   render()  {
+    console.log(this.state);
     return(
       <div className="form">
-          <div className="tab-content">
             <div id="login">
-              <h1>Welcome Back!</h1>
+              <h1>Welcome Log In</h1>
               <form>
-                <div className="field-wrap">
-                <label>
-                  Username<span className="req">*</span>
-                </label>
-                <input type="email"required autoComplete="off"/>
+                <div className="usernameContainer">
+                  <input onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="username" type="username" required autoComplete="off"/>
               </div>
 
-              <div className="field-wrap">
-                <label>
-                  Password<span className="req">*</span>
-                </label>
-                <input type="password"required autoComplete="off"/>
+              <div className="passwordContainer">
+                  <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
               </div>
 
               <p className="register"><a href="#">Register</a></p>
               <p className="teacher"><a href="">Teachers</a></p>
-              <button className="button button-block">Log In</button>
+              <button onSubmit={this._onSubmit} className="button button-block">Log In</button>
 
               </form>
 
             </div>
 
           </div>
-
-    </div>
-
     )
   }
 
