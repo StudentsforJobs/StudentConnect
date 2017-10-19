@@ -1,7 +1,10 @@
 package com.studentconnect.demo.backend.service;
 
 import com.studentconnect.demo.backend.model.Teacher;
-import com.studentconnect.demo.backend.repository.TeacherRepository;
+// <<<<<<< master
+// import com.studentconnect.demo.backend.repository.TeacherRepository;
+// =======
+// >>>>>>> master
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
