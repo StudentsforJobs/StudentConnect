@@ -66,6 +66,7 @@ public class Student {
         this.lastName = lastName;
     }
 
+    @Column(name = "username")
     public String getUserName() {
         return userName;
     }
