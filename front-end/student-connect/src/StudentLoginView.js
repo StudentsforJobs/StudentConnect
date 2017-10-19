@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import RegistrationView from './RegistrationView'
+// import RegistrationView from './RegistrationView'
 
 export default class Login extends Component {
   constructor(props) {
@@ -27,21 +27,22 @@ _handlePasswordChange = (evt) => {
 _onSubmit = (evt) => {
   evt.preventDefault()
   console.log(this.state);
-//
-//   fetch("http://localhost:8080", {
-//   method: "POST",
-//   body: listItem,
-//   headers: {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json'
-// }
-// }
-// ).then(response => {
-// console.log(response, "yay");
-//
-// }).catch(err => {
-// console.log(err, "boo!");
-// });
+  if
+
+  fetch("http://localhost:8080", {
+  method: "POST",
+  // body: ,
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+}
+}
+).then(response => {
+console.log(response, "yay");
+
+}).catch(err => {
+console.log(err, "boo!");
+});
 
   }
 
