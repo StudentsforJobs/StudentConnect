@@ -12,7 +12,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={StudentLoginView} />
           {/* <Route exact path="/AdminLoginView" component={AdminLogin} /> */}
-          <Route exact path="/RegistrationView" component={RegistrationView} />
+          <Route exact path="/Registration" component={RegistrationView} />
           {/* <Route exact path="/Create" component={Create} /> */}
           {/* <Route exact path="/Homepage" component={Homepage} /> */}
           {/* <Route exact path="/Classmate" component={Classmate} /> */}
