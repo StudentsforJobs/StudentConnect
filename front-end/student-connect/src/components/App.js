@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router';
+import { Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import '../styles/App.css';
-import Login from "./StudentLogin"
-import RegistrationView from  '../containers/RegistrationView'
+import StudentLoginView from "../views/StudentLoginView"
 
 
 class App extends Component {
