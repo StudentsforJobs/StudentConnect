@@ -3,7 +3,9 @@ package com.studentconnect.demo.backend.controller;
 import com.studentconnect.demo.backend.model.Activity;
 import com.studentconnect.demo.backend.model.Club;
 import com.studentconnect.demo.backend.model.Student;
+import com.studentconnect.demo.backend.model.Teacher;
 import com.studentconnect.demo.backend.service.StudentService;
+import com.studentconnect.demo.backend.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,18 +17,21 @@ public class ConnectController {
     @Autowired
     StudentService studentService;
 
+    @Autowired
+    TeacherService teacherService;
+
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public List<Student> getItems() {
+    public List<Student> getStudents() {
         return studentService.findAll();
     }
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
-    public void addItem(@RequestBody Student newStudent) {
+    public void addStudent(@RequestBody Student newStudent) {
         studentService.add(newStudent);
     }
 
     @RequestMapping(path = "/", method = RequestMethod.DELETE)
-    public void delete(@RequestBody int id) {
+    public void deleteStudent(@RequestBody int id) {
         studentService.delete(id);
     }
 
@@ -58,5 +63,20 @@ public class ConnectController {
     @RequestMapping(path = "/activities", method = RequestMethod.DELETE)
     public void deleteActivity(@RequestParam int studId, @RequestBody int actId) {
         studentService.deleteActivity(studId, actId);
+    }
+
+    @RequestMapping(path = "/teacher", method = RequestMethod.GET)
+    public List<Teacher> getTeachers() {
+        return teacherService.findAll();
+    }
+
+    @RequestMapping(path = "/teacher", method = RequestMethod.POST)
+    public void addTeacher(@RequestBody Teacher newTeacher) {
+        teacherService.add(newTeacher);
+    }
+
+    @RequestMapping(path = "/teacher", method = RequestMethod.DELETE)
+    public void deleteTeacher(@RequestBody int id) {
+        teacherService.delete(id);
     }
 }

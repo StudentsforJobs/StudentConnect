@@ -49,6 +49,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(int id) {
+        Student student = this.getById(id);
+        clubRepository.delete(student.getClubs());
+        activitiesRepository.delete(student.getActivities());
         studentRepository.delete(id);
     }
 
