@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import '../styles/App.css';
 import StudentLoginView from "../views/StudentLoginView"
-import RegistrationView from "../containers/RegistrationView"
+import RegistrationView from "../views/RegistrationView"
 
 class App extends Component {
   render() {

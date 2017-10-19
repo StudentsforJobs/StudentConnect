@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Registration from './RegistrationView'
+// import { Link } from 'react-router-dom';
+import RegistrationView from './RegistrationView'
 
 export default class Login extends Component {
   constructor(props) {
@@ -25,29 +26,23 @@ _handlePasswordChange = (evt) => {
 
 _onSubmit = (evt) => {
   evt.preventDefault()
-  // console.log(this.state);
-  // if (!valid) {
-  //     //This happens when the user leaves the field, but it is not valid
-  //     //(we do final validation in the parent component, then pass the result
-  //     //here for display)
-  //     message = this.props.errorMessage;
-  //     valid = false;
-  //     errorVisible = true;
-  //   }
-  //   else if (this.props.required && jQuery.isEmptyObject(value)) {
-  //     //this happens when we have a required field with no text entered
-  //     //in this case, we want the "emptyMessage" error message
-  //     message = this.props.emptyMessage;
-  //     valid = false;
-  //     errorVisible = true;
-  //   }
-  //   else if (value.length < this.props.minCharacters) {
-  //     //This happens when the text entered is not the required length,
-  //     //in which case we show the regular error message
-  //     message = this.props.errorMessage;
-  //     valid = false;
-  //     errorVisible = true;
-  //   }
+  console.log(this.state);
+//
+//   fetch("http://localhost:8080", {
+//   method: "POST",
+//   body: listItem,
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json'
+// }
+// }
+// ).then(response => {
+// console.log(response, "yay");
+//
+// }).catch(err => {
+// console.log(err, "boo!");
+// });
+
   }
 
 
@@ -65,7 +60,7 @@ _onSubmit = (evt) => {
                   <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
               </div>
 
-              <p className="register"><a href={Registration}>Register</a></p>
+              <p className="register"><a href='./RegistrationView'>Register</a></p>
               <p className="teacher"><a href="">Teachers</a></p>
               <button type='submit' className="button button-block">Log In</button>
 
