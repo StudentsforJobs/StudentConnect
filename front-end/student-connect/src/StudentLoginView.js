@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+import RegistrationView from './RegistrationView'
 
 export default class Login extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ export default class Login extends Component {
   }
 _validateForm = (evt) => {
   return this.state.username.length > 0 && this.state.password.length > 0;
+
 }
 
 _handleUsernameChange = (evt) => {
@@ -22,11 +25,24 @@ _handlePasswordChange = (evt) => {
 }
 
 _onSubmit = (evt) => {
-  console.log(this.state);
-
   evt.preventDefault()
   console.log(this.state);
-  // if _validateForm() = 
+//
+//   fetch("http://localhost:8080", {
+//   method: "POST",
+//   body: listItem,
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json'
+// }
+// }
+// ).then(response => {
+// console.log(response, "yay");
+//
+// }).catch(err => {
+// console.log(err, "boo!");
+// });
+
   }
 
 
@@ -44,7 +60,7 @@ _onSubmit = (evt) => {
                   <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
               </div>
 
-              <p className="register"><a href="#">Register</a></p>
+              <p className="register"><a href='./RegistrationView'>Register</a></p>
               <p className="teacher"><a href="">Teachers</a></p>
               <button type='submit' className="button button-block">Log In</button>
 
