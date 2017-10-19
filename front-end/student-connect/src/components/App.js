@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router';
+import { Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import '../styles/App.css';
-import Login from "./Login"
+import StudentLoginView from "../views/StudentLoginView"
+
 
 class App extends Component {
   render() {
     return (
-    <div>
-      <Login />
+    <div className="App">
+      <Switch>
+        <Route exact path="/" component={StudentLoginView} />
+        {/* <Route exact path="/AdminLoginView" component={AdminLogin} /> */}
+        {/* <Route exact path="/RegistrationView" component={RegistrationView} /> */}
+        {/* <Route exact path="/Create" component={Create} /> */}
+        {/* <Route exact path="/Homepage" component={Homepage} /> */}
+        {/* <Route exact path="/Classmate" component={Classmate} /> */}
+        {/* <Route exact path="/Profile" component={Profile} />                     */}
+      </Switch>
     </div>
     );
   }
