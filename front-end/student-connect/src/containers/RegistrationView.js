@@ -13,7 +13,7 @@ class RegistrationView extends Component {
             <input placeholder="Username" required/>
             <input type="password" placeholder="Password" required/>
             <input type="password" placeholder="Re-enter Password" required/>
-            <button type="Submit">Submit</button>
+            <button type="Submit">Register</button>
           </fieldset>
         </form>
     </div>
