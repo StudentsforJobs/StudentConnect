@@ -1,8 +1,8 @@
 package com.studentconnect.demo.backend.controller;
 
+import com.studentconnect.demo.backend.model.Activity;
 import com.studentconnect.demo.backend.model.Club;
 import com.studentconnect.demo.backend.model.Student;
-import com.studentconnect.demo.backend.service.ClubService;
 import com.studentconnect.demo.backend.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +14,6 @@ import java.util.List;
 public class ConnectController {
     @Autowired
     StudentService studentService;
-
-    @Autowired
-    ClubService clubService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Student> getItems() {
@@ -35,7 +32,7 @@ public class ConnectController {
 
     @RequestMapping(path = "/club", method = RequestMethod.GET)
     public List<Club> getClubs() {
-        return clubService.findAll();
+        return studentService.findAllClubs();
     }
 
     @RequestMapping(path = "/club", method = RequestMethod.POST)
@@ -46,5 +43,20 @@ public class ConnectController {
     @RequestMapping(path = "/club", method = RequestMethod.DELETE)
     public void deleteClub(@RequestParam int studId, @RequestBody int clubId) {
         studentService.deleteClub(studId, clubId);
+    }
+
+    @RequestMapping(path = "/activities", method = RequestMethod.GET)
+    public List<Activity> getActivities() {
+        return studentService.findAllActivities();
+    }
+
+    @RequestMapping(path = "/activities", method = RequestMethod.POST)
+    public void addActivity(@RequestParam int studId, @RequestBody String name) {
+        studentService.addActivity(studId, name);
+    }
+
+    @RequestMapping(path = "/activities", method = RequestMethod.DELETE)
+    public void deleteActivity(@RequestParam int studId, @RequestBody int actId) {
+        studentService.deleteActivity(studId, actId);
     }
 }

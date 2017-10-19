@@ -53,6 +53,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public List<Club> findAllClubs() {
+        return clubRepository.findAll();
+    }
+
+    @Override
     public Student addClub(int id, String name) {
         Student student = studentRepository.findOne(id);
         Club club = new Club();
@@ -72,6 +77,11 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentRepository.findOne(studId);
         student.getClubs().remove(club);
         studentRepository.save(student);
+    }
+
+    @Override
+    public List<Activity> findAllActivities() {
+        return activitiesRepository.findAll();
     }
 
     @Override
