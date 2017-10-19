@@ -9,7 +9,7 @@ export default class Login extends Component {
     }
 
   }
-_validateForm(){
+_validateForm = (evt) => {
   return this.state.username.length > 0 && this.state.password.length > 0;
 }
 
@@ -21,22 +21,21 @@ _handlePasswordChange = (evt) => {
   this.setState({password: evt.target.value})
 }
 
-_onSubmit= (evt) => {
+_onSubmit = (evt) => {
+  console.log(this.state);
+
   evt.preventDefault()
-  // const userLogin = {
-  //   username: this.state.username,
-  //   password: this.state.password
-// }
+  console.log(this.state);
+  // if _validateForm() = 
   }
 
 
   render()  {
-    console.log(this.state);
     return(
       <div className="form">
             <div id="login">
               <h1>Welcome Log In</h1>
-              <form>
+              <form onSubmit={this._onSubmit}>
                 <div className="usernameContainer">
                   <input onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="username" type="username" required autoComplete="off"/>
               </div>
@@ -47,7 +46,7 @@ _onSubmit= (evt) => {
 
               <p className="register"><a href="#">Register</a></p>
               <p className="teacher"><a href="">Teachers</a></p>
-              <button onSubmit={this._onSubmit} className="button button-block">Log In</button>
+              <button type='submit' className="button button-block">Log In</button>
 
               </form>
 
