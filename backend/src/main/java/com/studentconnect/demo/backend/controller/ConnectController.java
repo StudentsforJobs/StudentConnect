@@ -28,13 +28,23 @@ public class ConnectController {
         studentService.add(newStudent);
     }
 
+    @RequestMapping(path = "/", method = RequestMethod.DELETE)
+    public void delete(@RequestBody int id) {
+        studentService.delete(id);
+    }
+
     @RequestMapping(path = "/club", method = RequestMethod.GET)
     public List<Club> getClubs() {
         return clubService.findAll();
     }
 
     @RequestMapping(path = "/club", method = RequestMethod.POST)
-    public void addClub(@RequestBody Club newClub) {
-        clubService.add(newClub);
+    public void addClub(@RequestParam int studId, @RequestBody String name) {
+        studentService.addClub(studId, name);
+    }
+
+    @RequestMapping(path = "/club", method = RequestMethod.DELETE)
+    public void deleteClub(@RequestParam int studId, @RequestBody int clubId) {
+        studentService.deleteClub(studId, clubId);
     }
 }

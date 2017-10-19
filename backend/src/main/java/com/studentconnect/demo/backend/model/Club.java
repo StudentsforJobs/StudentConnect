@@ -12,7 +12,7 @@ public class Club {
     private Student student;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "student_id")
     public Student getStudent() {
         return student;
@@ -41,5 +41,29 @@ public class Club {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Club club = (Club) o;
+
+        return id == club.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Club{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", student=" + student +
+                '}';
     }
 }

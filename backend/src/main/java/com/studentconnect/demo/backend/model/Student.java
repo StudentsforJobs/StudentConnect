@@ -15,7 +15,7 @@ public class Student {
     private String about;
 
     private List<Activity> activities = new ArrayList<>();
-    private List<Club> clubs = new ArrayList<>();
+    private List<Club> clubs;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     public List<Activity> getActivities() {
