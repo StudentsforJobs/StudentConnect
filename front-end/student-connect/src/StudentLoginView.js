@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import RegistrationView from './RegistrationView'
+import { logUserIn } from 'axios'
 
 export default class Login extends Component {
   constructor(props) {
@@ -27,24 +28,11 @@ _handlePasswordChange = (evt) => {
 _onSubmit = (evt) => {
   evt.preventDefault()
   console.log(this.state);
-  if
+logUserIn().then((res) => {
+ console.log(res);
+})
 
-  fetch("http://localhost:8080", {
-  method: "POST",
-  // body: ,
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
 }
-}
-).then(response => {
-console.log(response, "yay");
-
-}).catch(err => {
-console.log(err, "boo!");
-});
-
-  }
 
 
   render()  {
