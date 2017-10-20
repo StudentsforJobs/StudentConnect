@@ -26,26 +26,7 @@ class RegistrationView extends Component {
 
     console.log("handling submit", event.target.querySelector("input[name='firstPassword']").value)
     console.log("handling submit", event.target.querySelector("input[name='reEnterPassword']").value)
-    // if (isPasswordConfirm) {
-    //   if (this.refs.firstPassword.value !== this.refs.reEnterPassword.value) {
-    //     this.refs.passwordConfirm.setCustomValidity('Passwords do not match');
-    //   } else {
-    //     this.refs.passwordConfirm.setCustomValidity('');
-    //   }
-    // }
-    //
-    // if (!validity.valid) {
-    //   if (validity.valueMissing) {
-    //     error.textContent = `${label} is a required field`;
-    //   } else if (validity.typeMismatch) {
-    //     error.textContent = `${label} should be a valid email address`;
-    //   } else if (isPassword && validity.patternMismatch) {
-    //     error.textContent = `${label} should be longer than 4 chars`;
-    //   } else if (isPasswordConfirm && validity.customError) {
-    //     error.textContent = 'Passwords do not match';
-    //   }
-    //   return false;
-    // }
+
 
         if (this.state.firstPassword !== this.state.reEnterPassword) {
           alert("Passwords do not match!")
