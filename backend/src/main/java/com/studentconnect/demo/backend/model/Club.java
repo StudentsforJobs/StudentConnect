@@ -3,23 +3,28 @@ package com.studentconnect.demo.backend.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clubs")
 public class Club {
     private int id;
     private String name;
-    private Student student;
 
     @JsonIgnore
-    @ManyToOne()
-    @JoinColumn(name = "student_id")
-    public Student getStudent() {
-        return student;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "students_clubs",
+       joinColumns = @JoinColumn(name = "student_id"),
+       inverseJoinColumns = @JoinColumn(name = "club_id"))
+    private List<Student> studs = new ArrayList<>();
+
+    public List<Student> getStudents() {
+        return studs;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudents(List<Student> students) {
+        this.studs = students;
     }
 
     public Club() {
@@ -63,7 +68,7 @@ public class Club {
         return "Club{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", student=" + student +
+                ", students=" + studs +
                 '}';
     }
 }

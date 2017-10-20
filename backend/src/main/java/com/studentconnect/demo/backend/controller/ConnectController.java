@@ -40,10 +40,12 @@ public class ConnectController {
         return studentService.findAllClubs();
     }
 
+    /*
     @RequestMapping(path = "/club", method = RequestMethod.POST)
     public void addClub(@RequestParam int studId, @RequestBody String name) {
         studentService.addClub(studId, name);
     }
+    */
 
     @RequestMapping(path = "/club", method = RequestMethod.DELETE)
     public void deleteClub(@RequestParam int studId, @RequestBody int clubId) {

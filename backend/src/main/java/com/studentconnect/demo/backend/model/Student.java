@@ -15,7 +15,6 @@ public class Student {
     private String about;
 
     private List<Activity> activities = new ArrayList<>();
-    private List<Club> clubs;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     public List<Activity> getActivities() {
@@ -26,7 +25,9 @@ public class Student {
         this.activities = activities;
     }
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Club> clubs = new ArrayList<>();
+
     public List<Club> getClubs() {
         return clubs;
     }

@@ -60,6 +60,7 @@ public class StudentServiceImpl implements StudentService {
         return clubRepository.findAll();
     }
 
+    /*
     @Override
     public Student addClub(int id, String name) {
         Student student = studentRepository.findOne(id);
@@ -72,6 +73,8 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.save(student);
         return getStudent(club.getStudent().getId());
     }
+    //need to change this for manyToMany...
+    */
 
     @Override
     public void deleteClub(int studId, int clubId) {

@@ -12,7 +12,7 @@ public interface StudentService {
     List<Student> findAll ();
     void delete (int id);
 
-    Student addClub(int id, String name);
+    //Student addClub(int id, String name);
     void deleteClub(int studId, int clubId);
     List<Club> findAllClubs();
 
