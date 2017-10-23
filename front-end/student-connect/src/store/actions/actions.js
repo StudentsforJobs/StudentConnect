@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_REGISTRATION = 'USER_REGISTRATION'
 // export const UPDATE_USER = 'UPDATE_USER';
@@ -11,5 +12,12 @@ export const USER_REGISTRATION = 'USER_REGISTRATION'
 // export const userRegistration = register => {
 //   return {
 //     type: actionTypes.USER_REGISTRATION
+=======
+// export const login = (username, password) => {
+//   return(dispatch, getState) => {
+//       axios.post('/studentlogin')
+//       .then(res)
+//       console.log(res)
+>>>>>>> e2ca0bec522135539acdaabbe8429824423b113a
 //   }
 // }
