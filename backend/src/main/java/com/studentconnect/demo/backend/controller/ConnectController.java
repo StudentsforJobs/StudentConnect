@@ -1,9 +1,6 @@
 package com.studentconnect.demo.backend.controller;
 
-import com.studentconnect.demo.backend.model.Activity;
-import com.studentconnect.demo.backend.model.Club;
-import com.studentconnect.demo.backend.model.Student;
-import com.studentconnect.demo.backend.model.Teacher;
+import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
 import com.studentconnect.demo.backend.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +37,10 @@ public class ConnectController {
         return studentService.findAllClubs();
     }
 
-    /*
     @RequestMapping(path = "/club", method = RequestMethod.POST)
-    public void addClub(@RequestParam int studId, @RequestBody String name) {
-        studentService.addClub(studId, name);
+    public void addClub(@RequestBody Club newClub) {
+        studentService.addClub(newClub);
     }
-    */
 
     @RequestMapping(path = "/club", method = RequestMethod.DELETE)
     public void deleteClub(@RequestParam int studId, @RequestBody int clubId) {
@@ -58,8 +53,8 @@ public class ConnectController {
     }
 
     @RequestMapping(path = "/activities", method = RequestMethod.POST)
-    public void addActivity(@RequestParam int studId, @RequestBody String name) {
-        studentService.addActivity(studId, name);
+    public void addActivity(@RequestBody Activity activity) {
+        studentService.addActivity(activity);
     }
 
     @RequestMapping(path = "/activities", method = RequestMethod.DELETE)
@@ -80,5 +75,20 @@ public class ConnectController {
     @RequestMapping(path = "/teacher", method = RequestMethod.DELETE)
     public void deleteTeacher(@RequestBody int id) {
         teacherService.delete(id);
+    }
+
+    @RequestMapping(path = "/subject", method = RequestMethod.GET)
+    public List<Subject> getSubjects() {
+        return studentService.findAllSubjects();
+    }
+
+    @RequestMapping(path = "/subject", method = RequestMethod.POST)
+    public void addSubject(@RequestBody Subject subject) {
+        studentService.addSubject(subject);
+    }
+
+    @RequestMapping(path = "/subject", method = RequestMethod.DELETE)
+    public void deleteSubject(@RequestBody int id) {
+        studentService.deleteSubject(id);
     }
 }
