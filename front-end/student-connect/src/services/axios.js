@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default function logUserIn(){
-  return axios.get(`https://localhost:8080/classmates`)
+  return axios.get(`localhost:8080`)
 }

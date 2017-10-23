@@ -1,11 +1,13 @@
 package com.studentconnect.demo.backend.service;
 
 import com.studentconnect.demo.backend.model.Activity;
+import com.studentconnect.demo.backend.model.Subject;
 import com.studentconnect.demo.backend.model.Club;
 import com.studentconnect.demo.backend.model.Student;
 import com.studentconnect.demo.backend.repository.ActivitiesRepository;
 import com.studentconnect.demo.backend.repository.ClubRepository;
 import com.studentconnect.demo.backend.repository.StudentRepository;
+import com.studentconnect.demo.backend.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,10 +26,12 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private ActivitiesRepository activitiesRepository;
 
+    @Autowired
+    private SubjectRepository subjectRepository;
+
     @Override
     @Transactional
     public Student add(Student student) {
-        System.out.println("Student being added: " + student);
         return studentRepository.save(student);
     }
 
@@ -60,21 +64,10 @@ public class StudentServiceImpl implements StudentService {
         return clubRepository.findAll();
     }
 
-    /*
     @Override
-    public Student addClub(int id, String name) {
-        Student student = studentRepository.findOne(id);
-        Club club = new Club();
-        club.setName(name);
-        club.setStudent(student);
-        clubRepository.save(club);
-        student = studentRepository.findOne(club.getStudent().getId());
-        student.getClubs().add(club);
-        studentRepository.save(student);
-        return getStudent(club.getStudent().getId());
+    public Club addClub(Club club) {
+        return clubRepository.save(club);
     }
-    //need to change this for manyToMany...
-    */
 
     @Override
     public void deleteClub(int studId, int clubId) {
@@ -91,16 +84,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student addActivity(int id, String name) {
-        Student student = studentRepository.findOne(id);
-        Activity activity = new Activity();
-        activity.setName(name);
-        activity.setStudent(student);
-        activitiesRepository.save(activity);
-        student = studentRepository.findOne(activity.getStudent().getId());
-        student.getActivities().add(activity);
-        studentRepository.save(student);
-        return getStudent(activity.getStudent().getId());
+    public Activity addActivity(Activity activity) {
+        return activitiesRepository.save(activity);
     }
 
     @Override
@@ -110,6 +95,31 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentRepository.findOne(studId);
         student.getActivities().remove(activity);
         studentRepository.save(student);
+    }
+
+    @Override
+    public Subject addSubject(Subject subject) {
+        return subjectRepository.save(subject);
+    }
+
+    @Override
+    public void deleteSubject(int id) {
+        subjectRepository.delete(id);
+    }
+
+    @Override
+    public List<Subject> findAllSubjects() {
+        return subjectRepository.findAll();
+    }
+
+    @Override
+    public void addStudentToClub(int studId, int clubId) {
+        Student student = studentRepository.findOne(studId);
+        Club club = clubRepository.findOne(clubId);
+        student.getClubs().add(club);
+        club.getStudents().add(student);
+        studentRepository.save(student);
+        clubRepository.save(club);
     }
 
     private Student getStudent(int id) {

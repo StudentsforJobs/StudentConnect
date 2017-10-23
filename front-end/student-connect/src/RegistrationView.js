@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/registration.css';
+// import '../styles/registration.css';
 
 class RegistrationView extends Component {
   constructor(){
