@@ -1,6 +1,7 @@
 package com.studentconnect.demo.backend.service;
 
 import com.studentconnect.demo.backend.model.Activity;
+import com.studentconnect.demo.backend.model.Class;
 import com.studentconnect.demo.backend.model.Club;
 import com.studentconnect.demo.backend.model.Student;
 import java.util.List;
@@ -19,4 +20,8 @@ public interface StudentService {
     Activity addActivity(Activity activity);
     void deleteActivity(int studId, int actId);
     List<Activity> findAllActivities();
+
+    Class addClass (Class newClass);
+    void deleteClass (int id);
+    List<Class> findAllClasses();
 }

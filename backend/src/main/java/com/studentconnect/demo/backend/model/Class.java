@@ -35,6 +35,9 @@ public class Class {
         this.name = name;
     }
 
+    @JsonIgnore
+    @OneToOne()
+    @JoinColumn(name = "teacher_id")
     public Teacher getTeacher() {
         return teacher;
     }
