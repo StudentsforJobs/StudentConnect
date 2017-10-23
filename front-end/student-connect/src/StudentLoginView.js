@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+// import RegistrationView from './RegistrationView'
+import { logUserIn } from 'axios'
 
 export default class Login extends Component {
   constructor(props) {
@@ -9,8 +12,9 @@ export default class Login extends Component {
     }
 
   }
-_validateForm(){
+_validateForm = (evt) => {
   return this.state.username.length > 0 && this.state.password.length > 0;
+
 }
 
 _handleUsernameChange = (evt) => {
@@ -21,22 +25,22 @@ _handlePasswordChange = (evt) => {
   this.setState({password: evt.target.value})
 }
 
-_onSubmit= (evt) => {
+_onSubmit = (evt) => {
   evt.preventDefault()
-  // const userLogin = {
-  //   username: this.state.username,
-  //   password: this.state.password
-// }
-  }
+  console.log(this.state);
+logUserIn().then((res) => {
+ console.log(res);
+})
+
+}
 
 
   render()  {
-    console.log(this.state);
     return(
       <div className="form">
             <div id="login">
               <h1>Welcome Log In</h1>
-              <form>
+              <form onSubmit={this._onSubmit}>
                 <div className="usernameContainer">
                   <input onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="username" type="username" required autoComplete="off"/>
               </div>
@@ -45,9 +49,9 @@ _onSubmit= (evt) => {
                   <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
               </div>
 
-              <p className="register"><a href="#">Register</a></p>
+              <p className="register"><a href='./RegistrationView'>Register</a></p>
               <p className="teacher"><a href="">Teachers</a></p>
-              <button onSubmit={this._onSubmit} className="button button-block">Log In</button>
+              <button type='submit' className="button button-block">Log In</button>
 
               </form>
 
