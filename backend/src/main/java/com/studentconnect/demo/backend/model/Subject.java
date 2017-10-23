@@ -8,13 +8,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "classes")
-public class Class {
+public class Subject {
     private int id;
     private String name;
     private Teacher teacher;
     private Set<Student> students;
 
-    public Class() {
+    public Subject() {
     }
 
     @Id
@@ -61,7 +61,7 @@ public class Class {
 
     @Override
     public String toString() {
-        return "Class{" +
+        return "Subject{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", teacher=" + teacher +

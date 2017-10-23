@@ -12,7 +12,7 @@ public class Teacher {
     private String lastName;
     private String userName;
     private String password;
-    private Class classTaught;
+    private Subject subject;
 
     public Teacher() {
     }
@@ -62,12 +62,12 @@ public class Teacher {
 
     @JsonIgnore
     @OneToOne(mappedBy = "teacher")
-    public Class getClassTaught() {
-        return classTaught;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setClassTaught(Class classTaught) {
-        this.classTaught = classTaught;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @Override

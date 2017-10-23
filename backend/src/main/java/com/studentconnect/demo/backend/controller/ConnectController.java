@@ -1,9 +1,6 @@
 package com.studentconnect.demo.backend.controller;
 
-import com.studentconnect.demo.backend.model.Activity;
-import com.studentconnect.demo.backend.model.Club;
-import com.studentconnect.demo.backend.model.Student;
-import com.studentconnect.demo.backend.model.Teacher;
+import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
 import com.studentconnect.demo.backend.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +77,18 @@ public class ConnectController {
         teacherService.delete(id);
     }
 
-    @RequestMapping(path = "/class", method = RequestMethod.GET)
-    public List<Class> getClasses() {
-        return studentService.findAllClasses();
+    @RequestMapping(path = "/subject", method = RequestMethod.GET)
+    public List<Subject> getSubjects() {
+        return studentService.findAllSubjects();
+    }
+
+    @RequestMapping(path = "/subject", method = RequestMethod.POST)
+    public void addSubject(@RequestBody Subject subject) {
+        studentService.addSubject(subject);
+    }
+
+    @RequestMapping(path = "/subject", method = RequestMethod.DELETE)
+    public void deleteSubject(@RequestBody int id) {
+        studentService.deleteSubject(id);
     }
 }
