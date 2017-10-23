@@ -137,4 +137,14 @@ public class StudentServiceImpl implements StudentService {
         student.getClubs().size();
         return student;
     }
+
+    @Override
+    public void addStudentToActivity(int studId, int activityId) {
+        Student student = studentRepository.findOne(studId);
+        Activity activity = activitiesRepository.findOne(activityId);
+        student.getActivities().add(activity);
+        activity.getStudents().add(student);
+        studentRepository.save(student);
+        activitiesRepository.save(activity);
+    }
 }

@@ -28,6 +28,7 @@ public interface StudentService {
 
     void addStudentToClass(int studId, int classId);
     void addStudentToClub(int studId, int clubId);
+    void addStudentToActivity(int studId, int activityId);
 }
 
 
