@@ -112,6 +112,16 @@ public class StudentServiceImpl implements StudentService {
         return subjectRepository.findAll();
     }
 
+    @Override
+    public void addStudentToClub(int studId, int clubId) {
+        Student student = studentRepository.findOne(studId);
+        Club club = clubRepository.findOne(clubId);
+        student.getClubs().add(club);
+        club.getStudents().add(student);
+        studentRepository.save(student);
+        clubRepository.save(club);
+    }
+
     private Student getStudent(int id) {
         Student student = studentRepository.findOne(id);
         student.getClubs().size();

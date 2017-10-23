@@ -91,4 +91,13 @@ public class ConnectController {
     public void deleteSubject(@RequestBody int id) {
         studentService.deleteSubject(id);
     }
+
+    //
+    //
+    //
+
+    @RequestMapping(path = "/studentToClub", method = RequestMethod.PATCH)
+    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId) {
+        studentService.add()
+    }
 }
