@@ -1,7 +1,8 @@
 package com.studentconnect.demo.backend.model;
-
+/*
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "classes")
@@ -9,8 +10,7 @@ public class Class {
     private int id;
     private String name;
     private Teacher teacher;
-
-    private List<Student> students;
+    private Set<Student> students;
 
     public Class() {
     }
@@ -41,12 +41,12 @@ public class Class {
         this.teacher = teacher;
     }
 
-    @ManyToMany()
-    public List<Student> getStudents() {
+    @ManyToMany(mappedBy = "student")
+    public Set<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(Set<Student> students) {
         this.students = students;
     }
 
@@ -60,3 +60,4 @@ public class Class {
                 '}';
     }
 }
+*/

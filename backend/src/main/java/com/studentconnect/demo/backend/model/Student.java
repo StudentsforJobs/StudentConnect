@@ -3,6 +3,7 @@ package com.studentconnect.demo.backend.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table (name = "students")
@@ -13,6 +14,7 @@ public class Student {
     private String userName;
     private String password;
     private String about;
+    private Set<Club> clubs;
 
     private List<Activity> activities = new ArrayList<>();
 
@@ -25,14 +27,12 @@ public class Student {
         this.activities = activities;
     }
 
-    @ManyToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    private List<Club> clubs = new ArrayList<>();
-
-    public List<Club> getClubs() {
+    @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
+    public Set<Club> getClubs() {
         return clubs;
     }
 
-    public void setClubs(List<Club> clubs) {
+    public void setClubs(Set<Club> clubs) {
         this.clubs = clubs;
     }
 
