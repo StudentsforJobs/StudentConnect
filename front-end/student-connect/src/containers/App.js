@@ -8,6 +8,7 @@ import RegistrationView from "../RegistrationView"
 import ClassmatesView from "../ClassmatesView"
 import AdminLoginView from "../AdminLoginView"
 
+
 class App extends Component {
   render() {
     return (
