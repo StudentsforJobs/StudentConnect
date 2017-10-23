@@ -1,8 +1,6 @@
 package com.studentconnect.demo.backend.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,28 +13,8 @@ public class Student {
     private String password;
     private String about;
     private Set<Club> clubs;
-
-    private List<Activity> activities = new ArrayList<>();
-
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    public List<Activity> getActivities() {
-        return activities;
-    }
-
-    public void setActivities(List<Activity> activities) {
-        this.activities = activities;
-    }
-
-    @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
-    public Set<Club> getClubs() {
-        return clubs;
-    }
-
-    public void setClubs(Set<Club> clubs) {
-
-
-        this.clubs = clubs;
-    }
+    private Set<Activity> activities;
+    private Set<Class> classes;
 
     public Student() {
     }
@@ -92,6 +70,33 @@ public class Student {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
+    public Set<Club> getClubs() {
+        return clubs;
+    }
+
+    public void setClubs(Set<Club> clubs) {
+        this.clubs = clubs;
+    }
+
+    @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
+    public Set<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Set<Activity> activities) {
+        this.activities = activities;
+    }
+
+    @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
+    public Set<Class> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Set<Class> classes) {
+        this.classes = classes;
     }
 
     @Override
