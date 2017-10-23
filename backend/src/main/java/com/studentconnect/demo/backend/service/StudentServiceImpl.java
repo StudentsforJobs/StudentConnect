@@ -27,7 +27,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional
     public Student add(Student student) {
-        System.out.println("Student being added: " + student);
         return studentRepository.save(student);
     }
 
@@ -60,21 +59,10 @@ public class StudentServiceImpl implements StudentService {
         return clubRepository.findAll();
     }
 
-    /*
     @Override
-    public Student addClub(int id, String name) {
-        Student student = studentRepository.findOne(id);
-        Club club = new Club();
-        club.setName(name);
-        club.setStudent(student);
-        clubRepository.save(club);
-        student = studentRepository.findOne(club.getStudent().getId());
-        student.getClubs().add(club);
-        studentRepository.save(student);
-        return getStudent(club.getStudent().getId());
+    public Club addClub(Club club) {
+        return clubRepository.save(club);
     }
-    //need to change this for manyToMany...
-    */
 
     @Override
     public void deleteClub(int studId, int clubId) {
@@ -91,16 +79,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student addActivity(int id, String name) {
-        Student student = studentRepository.findOne(id);
-        Activity activity = new Activity();
-        activity.setName(name);
-        activity.setStudent(student);
-        activitiesRepository.save(activity);
-        student = studentRepository.findOne(activity.getStudent().getId());
-        student.getActivities().add(activity);
-        studentRepository.save(student);
-        return getStudent(activity.getStudent().getId());
+    public Activity addActivity(Activity activity) {
+        return activitiesRepository.save(activity);
     }
 
     @Override

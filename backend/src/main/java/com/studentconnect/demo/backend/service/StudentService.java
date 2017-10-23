@@ -12,11 +12,11 @@ public interface StudentService {
     List<Student> findAll ();
     void delete (int id);
 
-    Student addClub(int id, String name);
+    Club addClub(Club club);
     void deleteClub(int studId, int clubId);
     List<Club> findAllClubs();
 
-    Student addActivity(int id, String name);
+    Activity addActivity(Activity activity);
     void deleteActivity(int studId, int actId);
     List<Activity> findAllActivities();
 }

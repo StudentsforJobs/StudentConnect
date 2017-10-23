@@ -1,8 +1,9 @@
 
 package com.studentconnect.demo.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -42,7 +43,11 @@ public class Class {
         this.teacher = teacher;
     }
 
-    @ManyToMany(mappedBy = "student")
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "students_classes",
+            joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "class_id", referencedColumnName = "id"))
     public Set<Student> getStudents() {
         return students;
     }

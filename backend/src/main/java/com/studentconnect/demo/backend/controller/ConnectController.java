@@ -57,10 +57,12 @@ public class ConnectController {
         return studentService.findAllActivities();
     }
 
+    /*
     @RequestMapping(path = "/activities", method = RequestMethod.POST)
     public void addActivity(@RequestParam int studId, @RequestBody String name) {
         studentService.addActivity(studId, name);
     }
+    */
 
     @RequestMapping(path = "/activities", method = RequestMethod.DELETE)
     public void deleteActivity(@RequestParam int studId, @RequestBody int actId) {
