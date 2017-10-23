@@ -26,6 +26,7 @@ public interface StudentService {
     void deleteSubject (int id);
     List<Subject> findAllSubjects();
 
+    void addStudentToClass(int studId, int classId);
     void addStudentToClub(int studId, int clubId);
 }
 
