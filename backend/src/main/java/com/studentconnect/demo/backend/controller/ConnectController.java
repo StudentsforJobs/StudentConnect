@@ -92,18 +92,26 @@ public class ConnectController {
         studentService.deleteSubject(id);
     }
 
-<<<<<<< HEAD
+
+    //
+    //
+    //
+
+
     @RequestMapping(path = "/studentToClass", method = RequestMethod.PATCH)
     public void addStudentToClass(@RequestParam int studId, @RequestParam int subjectId) {
+        studentService.addStudentToClass(studId, subjectId);
+    }
 
-=======
-    //
-    //
-    //
 
     @RequestMapping(path = "/studentToClub", method = RequestMethod.PATCH)
-    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId) {
-        studentService.add()
->>>>>>> d736ac7b58047458f40e05c20c2d4afc2d2dd421
+    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId){
+            studentService.addStudentToClub(studId, clubId);
+        }
+
+    @RequestMapping(path = "/StudentToActivity", method = RequestMethod.PATCH)
+    public void addStudentToActivity(@RequestParam int studId, @RequestParam int activityId){
+            studentService.addStudentToActivity(studId, activityId);
     }
-}
+
+    }
