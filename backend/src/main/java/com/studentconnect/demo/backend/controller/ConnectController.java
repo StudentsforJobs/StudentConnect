@@ -101,4 +101,10 @@ public class ConnectController {
     public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId) {
         studentService.addStudentToClub(studId, clubId);
     }
+
+    @RequestMapping(path = "/StudentToActivity", method = RequestMethod.PATCH)
+    public void addStudentToActivity(@RequestParam int studId, @RequestParam int activityId){
+            studentService.addStudentToActivity(studId, activityId);
+    }
+
 }
