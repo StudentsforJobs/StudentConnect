@@ -122,8 +122,6 @@ public class StudentServiceImpl implements StudentService {
         clubRepository.save(club);
     }
 
-    
-
     private Student getStudent(int id) {
         Student student = studentRepository.findOne(id);
         student.getClubs().size();
