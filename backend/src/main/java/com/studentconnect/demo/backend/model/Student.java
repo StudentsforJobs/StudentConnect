@@ -31,6 +31,9 @@ public class Student {
         return clubs;
     }
 
+
+
+
     public void setClubs(List<Club> clubs) {
         this.clubs = clubs;
     }
