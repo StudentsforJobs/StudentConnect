@@ -50,7 +50,7 @@ public class Activity {
         if (o == null || getClass() != o.getClass()) return false;
 
         Activity activity = (Activity) o;
-        
+
         return id == activity.id;
     }
 
