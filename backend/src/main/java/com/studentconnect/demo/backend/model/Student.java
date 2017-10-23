@@ -32,13 +32,8 @@ public class Student {
         return clubs;
     }
 
-
-
-
-
-    public void setClubs(List<Club> clubs) {
-
     public void setClubs(Set<Club> clubs) {
+
 
         this.clubs = clubs;
     }

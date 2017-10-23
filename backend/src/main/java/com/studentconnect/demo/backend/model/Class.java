@@ -1,6 +1,4 @@
 
-
-
 package com.studentconnect.demo.backend.model;
 
 import javax.persistence.*;
@@ -63,4 +61,3 @@ public class Class {
                 '}';
     }
 }
-
