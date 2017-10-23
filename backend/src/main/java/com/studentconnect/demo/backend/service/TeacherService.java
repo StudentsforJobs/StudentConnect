@@ -7,7 +7,7 @@ public interface TeacherService {
         Teacher add (Teacher teacher);
         void update (Teacher teacher);
         Teacher getById (int id);
-        List<Teacher> findAll ();    //list of teachers in system? still need repo built.
+        List<Teacher> findAll ();
         void delete (int id);
     }
 
