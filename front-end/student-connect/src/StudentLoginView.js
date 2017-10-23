@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import RegistrationView from './RegistrationView'
-import { logUserIn } from 'axios'
+import axios from 'axios'
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      userName: "",
       password: ""
     }
 
   }
+  componentDidMount(){
+    this._fetchPeople()
+  }
+_fetchPeople = () =>{
+  axios.get('http://localhost:8080/classmates')
+  .then(res=>{
+    console.log(res);
+  })
+}
+
+
 _validateForm = (evt) => {
-  return this.state.username.length > 0 && this.state.password.length > 0;
+  return this.state.userName.length > 0 && this.state.password.length > 0;
 
 }
 
 _handleUsernameChange = (evt) => {
-  this.setState({username: evt.target.value})
+  this.setState({userName: evt.target.value})
 }
 
 _handlePasswordChange = (evt) => {
@@ -27,10 +36,13 @@ _handlePasswordChange = (evt) => {
 
 _onSubmit = (evt) => {
   evt.preventDefault()
-  console.log(this.state);
-logUserIn().then((res) => {
- console.log(res);
-})
+  // console.log(this.state);
+// _fetchPeople.then((res) => {
+//   if (userName === password){
+//   }else
+//   // this.setState({username: res.data.results, password:res.data.results})
+//  console.log(res);
+// })
 
 }
 
@@ -39,7 +51,7 @@ logUserIn().then((res) => {
     return(
       <div className="form">
             <div id="login">
-              <h1>Welcome Log In</h1>
+              <h1>Welcome Students! Log In</h1>
               <form onSubmit={this._onSubmit}>
                 <div className="usernameContainer">
                   <input onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="username" type="username" required autoComplete="off"/>
@@ -49,8 +61,8 @@ logUserIn().then((res) => {
                   <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
               </div>
 
-              <p className="register"><a href='./RegistrationView'>Register</a></p>
-              <p className="teacher"><a href="">Teachers</a></p>
+              <p className="register"><a href='/Registration'>Register</a></p>
+              <p className="teacher"><a href="/">Teachers</a></p>
               <button type='submit' className="button button-block">Log In</button>
 
               </form>
