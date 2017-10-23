@@ -1,13 +1,7 @@
 package com.studentconnect.demo.backend.service;
 
 import com.studentconnect.demo.backend.model.Teacher;
-<<<<<<< HEAD
-=======
-// <<<<<<< master
-// import com.studentconnect.demo.backend.repository.TeacherRepository;
-// =======
-// >>>>>>> master
->>>>>>> dc52104bcf494cf59a5e251be0f46a8e12cb54c6
+
 import com.studentconnect.demo.backend.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

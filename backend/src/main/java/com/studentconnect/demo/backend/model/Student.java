@@ -32,14 +32,9 @@ public class Student {
         return clubs;
     }
 
-<<<<<<< HEAD
-
-
-
-    public void setClubs(List<Club> clubs) {
-=======
     public void setClubs(Set<Club> clubs) {
->>>>>>> dc52104bcf494cf59a5e251be0f46a8e12cb54c6
+
+
         this.clubs = clubs;
     }
 

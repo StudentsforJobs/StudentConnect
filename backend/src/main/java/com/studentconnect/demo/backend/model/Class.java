@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 
-=======
 package com.studentconnect.demo.backend.model;
-/*
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -63,5 +61,3 @@ public class Class {
                 '}';
     }
 }
-*/
->>>>>>> dc52104bcf494cf59a5e251be0f46a8e12cb54c6
