@@ -1,6 +1,7 @@
 package com.studentconnect.demo.backend.service;
 
 import com.studentconnect.demo.backend.model.Teacher;
+
 import com.studentconnect.demo.backend.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
-    private TeacherRepository teacherRepository;   //need to build teacherRepo
+    private TeacherRepository teacherRepository;
 
     @Override
     @Transactional
