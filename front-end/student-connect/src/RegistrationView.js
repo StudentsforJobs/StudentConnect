@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/registration.css';
+import './styles/registration.css';
 import axios from 'axios';
 
 class RegistrationView extends Component {
@@ -16,12 +16,12 @@ class RegistrationView extends Component {
 
 
     }
-    componentDidMount(){
-      this._registerUser()
-    }
-  _registerUser = () => {
-    axios.post('http://localhost:8080/')
-  }
+    // componentDidMount(){
+    //   this._registerUser()
+    // }
+  // _registerUser = () => {
+  //   axios.post('http://localhost:8080/')
+  // }
 
   }
 

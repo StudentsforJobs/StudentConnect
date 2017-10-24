@@ -7,6 +7,7 @@ import StudentLoginView from "../StudentLoginView"
 import RegistrationView from "../RegistrationView"
 import ClassmatesView from "../ClassmatesView"
 import AdminLoginView from "../AdminLoginView"
+import ProfileView from "../ProfileView";
 
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
           {/* <Route exact path="/Create" component={Create} /> */}
           {/* <Route exact path="/Homepage" component={Homepage} /> */}
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
-          {/* <Route exact path="/Profile" component={Profile} /> */}
+          <Route exact path="/Profile" component={ProfileView} />
           </Switch>
         </BrowserRouter>
       </div>
