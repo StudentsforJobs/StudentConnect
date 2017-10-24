@@ -21,9 +21,11 @@ class App extends Component {
           <Route exact path="/Admin" component={AdminLoginView} />
           <Route exact path="/Registration" component={RegistrationView} />
           <Route exact path="/Create" component={CreateProfileView} />
+          {/* <Route path="/Homepage/:id"/ component={Homepage}/> */}
           {/* <Route exact path="/Homepage" component={Homepage} /> */}
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
-          <Route exact path="/Profile" component={ProfileView} />
+          <Route path="/Profile/:id" component={ProfileView} />
+          {/* <Route exact path="/Profile" component={ProfileView} /> */}
           </Switch>
         </BrowserRouter>
       </div>

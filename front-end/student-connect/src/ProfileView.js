@@ -12,9 +12,12 @@ export default class ProfileView extends Component {
           <h3 className="last-name">Last Name</h3>
         </div>
         <img src="https://www.synbio.cam.ac.uk/images/avatar-generic.jpg/image" alt="" className="w-50 h-50"/>
-        <p className="about">About</p>
-        <p className="clubs">Clubs</p>
-        <p className= "activities">Activities</p>
+        <h3 className="about">About</h3>
+        <p></p>
+        <h3 className="clubs">Clubs</h3>
+        <p></p>
+        <h3 className= "activities">Activities</h3>
+        <p></p>
       </div>
     )
   }

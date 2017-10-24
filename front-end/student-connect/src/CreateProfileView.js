@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 export default class CreateProfileView extends Component {
   constructor(props) {
     super(props)
+
+  }
+  _handleSubmit = (event) => {
+    event.preventDefault()
+    console.log("handling submit", event.target)
+  }
+
+  _handleOnChange = (event) => {
+    console.log('handling change');
   }
   render() {
     return(
@@ -12,7 +21,7 @@ export default class CreateProfileView extends Component {
           <h3>Last Name</h3>
         </div>
         <form class="d-flex flex-column">
-          <input placeholder="Put your image link here "/>
+          <input type="url" name="profile-image" placeholder="Put your image link here "/>
           <textarea name="about" cols="30" rows="10" placeholder= "Write a little bit about yourself"></textarea>
           <div className="form-group">
             <label htmlFor="clubs">clubs</label>
@@ -26,7 +35,7 @@ export default class CreateProfileView extends Component {
               <input className= "activities form-control" type="text" placeholder="activity" id="activities" />
               <input className= "activities form-control" type="text" placeholder="activity" id="activities"/>
           </div>
-
+        <button type="submit">Create Profile</button>
         </form>
       </div>
     )
