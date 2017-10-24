@@ -15,8 +15,8 @@ public class Activity {
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable (name = "students_activities",
-    joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "activity_id", referencedColumnName = "id"))
+    joinColumns = @JoinColumn(name = "activity_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"))
    public Set<Student> getStudents() { return students;}
 
     public void setStudents(Set<Student> students) {

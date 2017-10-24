@@ -1,13 +1,7 @@
 package com.studentconnect.demo.backend.service;
 
-import com.studentconnect.demo.backend.model.Activity;
-import com.studentconnect.demo.backend.model.Subject;
-import com.studentconnect.demo.backend.model.Club;
-import com.studentconnect.demo.backend.model.Student;
-import com.studentconnect.demo.backend.repository.ActivitiesRepository;
-import com.studentconnect.demo.backend.repository.ClubRepository;
-import com.studentconnect.demo.backend.repository.StudentRepository;
-import com.studentconnect.demo.backend.repository.SubjectRepository;
+import com.studentconnect.demo.backend.model.*;
+import com.studentconnect.demo.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +22,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private SubjectRepository subjectRepository;
+
+    @Autowired
+    private PostRepository postRepository;
+
+    @Autowired
+    private TeacherRepository teacherRepository;
 
     @Override
     @Transactional
@@ -116,8 +116,12 @@ public class StudentServiceImpl implements StudentService {
     public void addStudentToClass(int studId, int subjectId) {
         Student student = studentRepository.findOne(studId);
         Subject subject = subjectRepository.findOne(subjectId);
+        System.out.println("Student to add: " + student);
+        System.out.println("Subject to add: " + subject);
         student.getSubjects().add(subject);
         subject.getStudents().add(student);
+        System.out.println("Student before save: " + student);
+        System.out.println("Subject before save: " + subject);
         studentRepository.save(student);
         subjectRepository.save(subject);
     }
@@ -146,5 +150,35 @@ public class StudentServiceImpl implements StudentService {
         activity.getStudents().add(student);
         studentRepository.save(student);
         activitiesRepository.save(activity);
+    }
+
+    @Override
+    public Post addPost(Post post) {
+        return postRepository.save(post);
+    }
+
+    @Override
+    public void deletePost(int id) {
+        postRepository.delete(id);
+    }
+
+    @Override
+    public List<Post> findAllPosts() {
+        return postRepository.findAll();
+    }
+
+    @Override
+    public Teacher addTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public void deleteTeacher(int id) {
+        teacherRepository.delete(id);
+    }
+
+    @Override
+    public List<Teacher> findAllTeachers() {
+        return teacherRepository.findAll();
     }
 }
