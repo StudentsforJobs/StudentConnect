@@ -92,7 +92,7 @@ public class ConnectController {
         studentService.deleteSubject(id);
     }
 
-    @RequestMapping(path = "/studentToClass", method = RequestMethod.PATCH)
+    @RequestMapping(path = "/studentToSubject", method = RequestMethod.PATCH)
     public void addStudentToClass(@RequestParam int studId, @RequestParam int subjectId) {
         studentService.addStudentToClass(studId, subjectId);
     }
