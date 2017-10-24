@@ -27,11 +27,13 @@ public interface StudentService {
     void deletePost (int id);
     List<Post> findAllPosts();
 
+    Teacher addTeacher (Teacher teacher);
+    void deleteTeacher (int id);
+    List<Teacher> findAllTeachers();
+
     void addStudentToClass(int studId, int subjectId);
     void addStudentToClub(int studId, int clubId);
     void addStudentToActivity(int studId, int activityId);
-
-
 }
 
 

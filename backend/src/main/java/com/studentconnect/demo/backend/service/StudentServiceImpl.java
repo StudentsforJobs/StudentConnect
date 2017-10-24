@@ -26,6 +26,9 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private TeacherRepository teacherRepository;
+
     @Override
     @Transactional
     public Student add(Student student) {
@@ -162,5 +165,20 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Post> findAllPosts() {
         return postRepository.findAll();
+    }
+
+    @Override
+    public Teacher addTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public void deleteTeacher(int id) {
+        teacherRepository.delete(id);
+    }
+
+    @Override
+    public List<Teacher> findAllTeachers() {
+        return teacherRepository.findAll();
     }
 }
