@@ -62,7 +62,7 @@ _onSubmit = (evt) => {
               </div>
 
               <p className="register"><a href='/Registration'>Register</a></p>
-              <p className="teacher"><a href="/">Teachers</a></p>
+              <p className="teacher"><a href="/Admin">Teachers</a></p>
               <button type='submit' className="button button-block">Log In</button>
 
               </form>
