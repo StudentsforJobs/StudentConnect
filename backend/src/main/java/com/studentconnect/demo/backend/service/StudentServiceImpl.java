@@ -1,13 +1,7 @@
 package com.studentconnect.demo.backend.service;
 
-import com.studentconnect.demo.backend.model.Activity;
-import com.studentconnect.demo.backend.model.Subject;
-import com.studentconnect.demo.backend.model.Club;
-import com.studentconnect.demo.backend.model.Student;
-import com.studentconnect.demo.backend.repository.ActivitiesRepository;
-import com.studentconnect.demo.backend.repository.ClubRepository;
-import com.studentconnect.demo.backend.repository.StudentRepository;
-import com.studentconnect.demo.backend.repository.SubjectRepository;
+import com.studentconnect.demo.backend.model.*;
+import com.studentconnect.demo.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +22,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private SubjectRepository subjectRepository;
+
+    @Autowired
+    private PostRepository postRepository;
 
     @Override
     @Transactional
@@ -150,5 +147,20 @@ public class StudentServiceImpl implements StudentService {
         activity.getStudents().add(student);
         studentRepository.save(student);
         activitiesRepository.save(activity);
+    }
+
+    @Override
+    public Post addPost(Post post) {
+        return postRepository.save(post);
+    }
+
+    @Override
+    public void deletePost(int id) {
+        postRepository.delete(id);
+    }
+
+    @Override
+    public List<Post> findAllPosts() {
+        return postRepository.findAll();
     }
 }

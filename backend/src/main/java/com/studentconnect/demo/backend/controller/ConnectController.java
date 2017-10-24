@@ -92,6 +92,11 @@ public class ConnectController {
         studentService.deleteSubject(id);
     }
 
+    @RequestMapping(path = "/post", method = RequestMethod.GET)
+    public List<Post> getAllPosts() {
+        return studentService.findAllPosts();
+    }
+
     @RequestMapping(path = "/studentToSubject", method = RequestMethod.PATCH)
     public void addStudentToClass(@RequestParam int studId, @RequestParam int subjectId) {
         studentService.addStudentToClass(studId, subjectId);
