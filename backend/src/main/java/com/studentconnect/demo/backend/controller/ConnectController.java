@@ -12,7 +12,7 @@ import java.util.List;
 public class ConnectController {
     @Autowired
     StudentService studentService;
-    
+
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Student> getStudents() {
         return studentService.findAll();
