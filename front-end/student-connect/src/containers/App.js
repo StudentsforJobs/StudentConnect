@@ -24,7 +24,7 @@ class App extends Component {
           {/* <Route path="/Homepage/:id"/ component={Homepage}/> */}
           {/* <Route exact path="/Homepage" component={Homepage} /> */}
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
-          <Route path="/Profile/:id" component={ProfileView} />
+          <Route path="/Profile/:studentprofileid" component={ProfileView} />
           {/* <Route exact path="/Profile" component={ProfileView} /> */}
           </Switch>
         </BrowserRouter>
