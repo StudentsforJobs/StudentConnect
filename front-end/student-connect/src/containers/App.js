@@ -8,6 +8,7 @@ import RegistrationView from "../RegistrationView"
 import ClassmatesView from "../ClassmatesView"
 import AdminLoginView from "../AdminLoginView"
 import ProfileView from "../ProfileView";
+import CreateProfileView from "../CreateProfileView"
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
           <Route exact path="/" component={StudentLoginView} />
           <Route exact path="/Admin" component={AdminLoginView} />
           <Route exact path="/Registration" component={RegistrationView} />
-          {/* <Route exact path="/Create" component={Create} /> */}
+          <Route exact path="/Create" component={CreateProfileView} />
           {/* <Route exact path="/Homepage" component={Homepage} /> */}
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
           <Route exact path="/Profile" component={ProfileView} />
