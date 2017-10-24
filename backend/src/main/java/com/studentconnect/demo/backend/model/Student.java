@@ -14,7 +14,7 @@ public class Student {
     private String about;
     private Set<Club> clubs;
     private Set<Activity> activities;
-    private Set<Class> classes;
+    private Set<Subject> subjects;
 
     public Student() {
     }
@@ -91,12 +91,12 @@ public class Student {
     }
 
     @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
-    public Set<Class> getClasses() {
-        return classes;
+    public Set<Subject> getSubjects() {
+        return subjects;
     }
 
-    public void setClasses(Set<Class> classes) {
-        this.classes = classes;
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 
     @Override

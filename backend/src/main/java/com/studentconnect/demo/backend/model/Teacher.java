@@ -1,5 +1,7 @@
 package com.studentconnect.demo.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class Teacher {
     private String lastName;
     private String userName;
     private String password;
+    private Subject subject;
 
     public Teacher() {
     }
@@ -55,6 +58,16 @@ public class Teacher {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "teacher")
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @Override
