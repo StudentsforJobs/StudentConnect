@@ -116,8 +116,12 @@ public class StudentServiceImpl implements StudentService {
     public void addStudentToClass(int studId, int subjectId) {
         Student student = studentRepository.findOne(studId);
         Subject subject = subjectRepository.findOne(subjectId);
+        System.out.println("Student to add: " + student);
+        System.out.println("Subject to add: " + subject);
         student.getSubjects().add(subject);
         subject.getStudents().add(student);
+        System.out.println("Student before save: " + student);
+        System.out.println("Subject before save: " + subject);
         studentRepository.save(student);
         subjectRepository.save(subject);
     }
