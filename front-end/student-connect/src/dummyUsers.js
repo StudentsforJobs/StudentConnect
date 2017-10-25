@@ -1,6 +1,6 @@
 // {id (self-generating), firstName, lastName, userName, password, about (string), clubs (List), activities (List)}
 
-export default =
+export default const students =
 [
   {
   id: 1,
