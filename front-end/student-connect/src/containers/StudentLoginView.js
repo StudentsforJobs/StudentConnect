@@ -14,7 +14,7 @@ export default class Login extends Component {
     this._fetchPeople()
   }
 _fetchPeople = () =>{
-  axios.get('http://localhost:8080/classmates')
+  fetch('http://localhost:8080')
   .then(res=>{
     console.log(res);
   })
