@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/registration.css';
+// import './styles/registration.css';
 import axios from 'axios';
 
 class RegistrationView extends Component {
