@@ -2,7 +2,6 @@ package com.studentconnect.demo.backend.controller;
 
 import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
-import com.studentconnect.demo.backend.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +12,6 @@ import java.util.List;
 public class ConnectController {
     @Autowired
     StudentService studentService;
-
-    @Autowired
-    TeacherService teacherService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Student> getStudents() {
@@ -64,17 +60,17 @@ public class ConnectController {
 
     @RequestMapping(path = "/teacher", method = RequestMethod.GET)
     public List<Teacher> getTeachers() {
-        return teacherService.findAll();
+        return studentService.findAllTeachers();
     }
 
     @RequestMapping(path = "/teacher", method = RequestMethod.POST)
     public void addTeacher(@RequestBody Teacher newTeacher) {
-        teacherService.add(newTeacher);
+        studentService.addTeacher(newTeacher);
     }
 
     @RequestMapping(path = "/teacher", method = RequestMethod.DELETE)
     public void deleteTeacher(@RequestBody int id) {
-        teacherService.delete(id);
+        studentService.deleteTeacher(id);
     }
 
     @RequestMapping(path = "/subject", method = RequestMethod.GET)
@@ -92,26 +88,24 @@ public class ConnectController {
         studentService.deleteSubject(id);
     }
 
+    @RequestMapping(path = "/post", method = RequestMethod.GET)
+    public List<Post> getAllPosts() {
+        return studentService.findAllPosts();
+    }
 
-    //
-    //
-    //
-
-
-    @RequestMapping(path = "/studentToClass", method = RequestMethod.PATCH)
+    @RequestMapping(path = "/studentToSubject", method = RequestMethod.PATCH)
     public void addStudentToClass(@RequestParam int studId, @RequestParam int subjectId) {
         studentService.addStudentToClass(studId, subjectId);
     }
 
-
     @RequestMapping(path = "/studentToClub", method = RequestMethod.PATCH)
-    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId){
-            studentService.addStudentToClub(studId, clubId);
-        }
+    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId) {
+        studentService.addStudentToClub(studId, clubId);
+    }
 
     @RequestMapping(path = "/StudentToActivity", method = RequestMethod.PATCH)
     public void addStudentToActivity(@RequestParam int studId, @RequestParam int activityId){
             studentService.addStudentToActivity(studId, activityId);
     }
 
-    }
+}
