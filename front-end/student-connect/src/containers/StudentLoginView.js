@@ -52,8 +52,6 @@ _onSubmit = (evt) => {
     console.log(this.props);
     return(
       <div className="form">
-            <div id="login">
-              <h1>Welcome! Log In</h1>
             <div className="jumbotron" id="login">
               <h1 className="display-3">Welcome Students!</h1>
               <p class="lead">Log In Below!</p>
@@ -67,10 +65,8 @@ _onSubmit = (evt) => {
                   <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" class=".form-control" required autoComplete="off"/>
               </div>
 
-              <p className="register"><a href='/Registration'>Register</a></p>
-              <button type='submit' className="button button-block">Log In</button>
-              <p className="teacher"><a href="/Admin">Teachers</a></p>
               <button type='submit' className="btn btn-success">Log In</button>
+              <p className="register"><a href='/Registration'>Register</a></p>
 
               </form>
 
