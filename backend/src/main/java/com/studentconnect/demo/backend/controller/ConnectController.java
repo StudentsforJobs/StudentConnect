@@ -2,6 +2,7 @@ package com.studentconnect.demo.backend.controller;
 
 import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
+import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +14,25 @@ public class ConnectController {
     @Autowired
     StudentService studentService;
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "/student", method = RequestMethod.GET)
     public List<Student> getStudents() {
         return studentService.findAll();
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public Student logIn(@RequestBody Credentials user) {
+        Student current = new Student();
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        List<Student> students = studentService.findAll();
+        for (Student student : students) {
+            if (student.getUserName().equals(user.getUsername())) {
+                if(student.getPassword().equals(user.getPassword())) {
+                    current = student;
+                }
+            }
+        }
+        return current;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
