@@ -11,11 +11,13 @@ export default class Login extends Component {
 
   }
   componentDidMount(){
-    this._fetchPeople()
+    this._fetchStudents()
+
   }
-_fetchPeople = () =>{
-  axios.get('http://localhost:8080/classmates')
-  .then(res=>{
+
+_fetchStudents = () => {
+  axios.get('http://localhost:8080')
+  .then(res => {
     console.log(res);
   })
 }
@@ -37,19 +39,21 @@ _handlePasswordChange = (evt) => {
 _onSubmit = (evt) => {
   evt.preventDefault()
   // console.log(this.state);
-// _fetchPeople.then((res) => {
-//   if (userName === password){
-//   }else
-//   // this.setState({username: res.data.results, password:res.data.results})
-//  console.log(res);
-// })
-
+  // axios.post("localhost:8080/login", {
+  //   userName: this.state.userName,
+  //   password: this.state.password
+  // }).then(res => console.log(res)
+  // )
+  this.props.history.push("/Home")
 }
 
 
   render()  {
+    console.log(this.props);
     return(
       <div className="form">
+            <div id="login">
+              <h1>Welcome! Log In</h1>
             <div className="jumbotron" id="login">
               <h1 className="display-3">Welcome Students!</h1>
               <p class="lead">Log In Below!</p>
@@ -64,6 +68,7 @@ _onSubmit = (evt) => {
               </div>
 
               <p className="register"><a href='/Registration'>Register</a></p>
+              <button type='submit' className="button button-block">Log In</button>
               <p className="teacher"><a href="/Admin">Teachers</a></p>
               <button type='submit' className="btn btn-success">Log In</button>
 

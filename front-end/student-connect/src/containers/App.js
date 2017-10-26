@@ -5,9 +5,8 @@ import {  connect } from 'react-redux'
 import '../styles/App.css';
 import StudentLoginView from "./StudentLoginView"
 import RegistrationView from "./RegistrationView"
-import AdminLoginView from "./AdminLoginView"
 import HomePageView from "./HomePageView"
-
+// import ClassmatesView from "./ClassmatesView"
 
 class App extends Component {
   render() {
@@ -16,10 +15,9 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
           <Route exact path="/" component={StudentLoginView} />
-          <Route exact path="/Admin" component={AdminLoginView} />
           <Route exact path="/Registration" component={RegistrationView} />
           {/* <Route exact path="/Create" component={CreateProfileView} /> */}
-          <Route exact path="/Homepage" component={HomePageView} />
+          <Route exact path="/Home" component={HomePageView} />
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
           {/* <Route exact path="/Profile" component={ProfileView} /> */}
           </Switch>

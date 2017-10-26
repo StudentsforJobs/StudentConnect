@@ -15,7 +15,10 @@ export default class PostList extends Component {
     console.log(this.state);
     return(
       <div>
-        
+        <ul>
+          <li><PostListItem /></li>
+          <li>{.}</li>
+        </ul>
       </div>
     )
   }

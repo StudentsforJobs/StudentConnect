@@ -7,8 +7,6 @@ export default class HomePageView extends Component {
   // constructor(props){
   //   super(props);
   //   this.state ={
-  //     firstName = '',
-  //     lastName = '',
   //     newsfeed = '',
   //     post = '',
   //
@@ -20,9 +18,9 @@ export default class HomePageView extends Component {
   render(){
     return(
       <div className='wrapper'>
+
         {/* <Navbar /> */}
         {/* <UserDetailCard /> */}
-
 
 
 
