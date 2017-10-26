@@ -33,4 +33,23 @@ export default class ClassmatesView extends Component {
     )
   }
 
+  // <div class="card" style="width:20 rem;">
+  // <img class="card-img-top" src="..." alt="Card image cap">
+  //   <div class="card-body">
+  //     <h4 class="card-title">{student.firstName} + " " + {student.lastName}</h4>
+  //         <ul>
+  //           {this.state.students.map(student => {
+  //             return(
+  //           <li class ="card-text" key={student.id}>
+  //             {student.firstName} {student.lastName}
+  //             {student.clubs}
+  //           </li>
+  //       )
+  //     }
+  //   )
+  // }
+  //     </ul>
+  //   </div>
+  // </div>
+
 }
