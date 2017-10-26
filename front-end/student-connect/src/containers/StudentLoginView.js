@@ -50,20 +50,22 @@ _onSubmit = (evt) => {
   render()  {
     return(
       <div className="form">
-            <div id="login">
-              <h1>Welcome Students! Log In</h1>
+            <div className="jumbotron" id="login">
+              <h1 className="display-3">Welcome Students!</h1>
+              <p class="lead">Log In Below!</p>
+              <hr class="my-4"/>
               <form onSubmit={this._onSubmit}>
-                <div className="usernameContainer">
-                  <input onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="username" type="username" required autoComplete="off"/>
+                <div className="form-group">
+                  <input type="form-control"  onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="Username" type="username" class=".form-control" required autoComplete="off"/>
               </div>
 
-              <div className="passwordContainer">
-                  <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" required autoComplete="off"/>
+              <div className="form-group">
+                  <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" class=".form-control" required autoComplete="off"/>
               </div>
 
               <p className="register"><a href='/Registration'>Register</a></p>
               <p className="teacher"><a href="/Admin">Teachers</a></p>
-              <button type='submit' className="button button-block">Log In</button>
+              <button type='submit' className="btn btn-success">Log In</button>
 
               </form>
 
