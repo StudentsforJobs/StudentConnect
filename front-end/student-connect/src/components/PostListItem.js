@@ -44,13 +44,13 @@ export default class PostListItem extends Component {
           <ul href="#" className="status-list">
             <li>
               <span>
-                <h5 className="list-group-item">{student.firstName} {student.lastName}</h5>
+                <h5 className="list-group-item">{student.teacherTitle}{student.firstName} {student.lastName}</h5>
                 <small>2 hrs ago</small>
               </span>
               <p className="list-group-item-text">{student.status}</p>
               <small>{student.subject}</small>
             </li>
-            <li href="#" className="list-group-item list-group-item-action">
+            {/* <li href="#" className="list-group-item list-group-item-action">
               <span>
                 <h5 className="list-group-item-heading">{student.teacherTitle}{student.teacherLastName}</h5>
                 <small>4 hrs ago</small>
@@ -58,7 +58,7 @@ export default class PostListItem extends Component {
               <p className="list-group-item-text">{student.status}</p>
               <small>{student.teacherTitle}{student.teacherLastName}</small>
               <small>{student.subject}</small>
-            </li>
+            </li> */}
           </ul>
         </div>
       )
