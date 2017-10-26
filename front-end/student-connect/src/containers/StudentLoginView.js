@@ -52,15 +52,12 @@ _onSubmit = (evt) => {
     console.log(this.props);
     return(
       <div className="form">
-<<<<<<< HEAD
             <div id="login">
               <h1>Welcome! Log In</h1>
-=======
             <div className="jumbotron" id="login">
               <h1 className="display-3">Welcome Students!</h1>
               <p class="lead">Log In Below!</p>
               <hr class="my-4"/>
->>>>>>> 3575672f5fe9319c9f9108c4befe16b6645148c6
               <form onSubmit={this._onSubmit}>
                 <div className="form-group">
                   <input type="form-control"  onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="Username" type="username" class=".form-control" required autoComplete="off"/>
@@ -71,12 +68,9 @@ _onSubmit = (evt) => {
               </div>
 
               <p className="register"><a href='/Registration'>Register</a></p>
-<<<<<<< HEAD
               <button type='submit' className="button button-block">Log In</button>
-=======
               <p className="teacher"><a href="/Admin">Teachers</a></p>
               <button type='submit' className="btn btn-success">Log In</button>
->>>>>>> 3575672f5fe9319c9f9108c4befe16b6645148c6
 
               </form>
 
