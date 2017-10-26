@@ -16,7 +16,7 @@ export default class Login extends Component {
   }
 
 _fetchStudents = () => {
-  axios.get('http://localhost:8080')
+  axios.get('http://localhost:8080/student')
   .then(res => {
     console.log(res);
   })
@@ -38,12 +38,12 @@ _handlePasswordChange = (evt) => {
 
 _onSubmit = (evt) => {
   evt.preventDefault()
-  // console.log(this.state);
-  // axios.post("localhost:8080/login", {
-  //   userName: this.state.userName,
-  //   password: this.state.password
-  // }).then(res => console.log(res)
-  // )
+  console.log(this.state);
+  axios.post("localhost:8080/login", {
+    userName: this.state.userName,
+    password: this.state.password
+  }).then(res => console.log(res)
+  )
   this.props.history.push("/Home")
 }
 
@@ -53,16 +53,16 @@ _onSubmit = (evt) => {
     return(
       <div className="form">
             <div className="jumbotron" id="login">
-              <h1 className="display-3">Welcome Students!</h1>
-              <p class="lead">Log In Below!</p>
-              <hr class="my-4"/>
+              <h1 className="display-3">Welcome!</h1>
+              <p className="lead">Log In Below!</p>
+              <hr className="my-4"/>
               <form onSubmit={this._onSubmit}>
                 <div className="form-group">
-                  <input type="form-control"  onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="Username" type="username" class=".form-control" required autoComplete="off"/>
+                  <input type="form-control"  onChange={this._handleUsernameChange} id="username" value={this.state.value} placeholder="Username" type="username" className=".form-control" required autoComplete="off"/>
               </div>
 
               <div className="form-group">
-                  <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" class=".form-control" required autoComplete="off"/>
+                  <input onChange={this._handlePasswordChange} id="password" value={this.state.value} placeholder="password" type="password" className=".form-control" required autoComplete="off"/>
               </div>
 
               <button type='submit' className="btn btn-success">Log In</button>

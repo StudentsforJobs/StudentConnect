@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 
 export default class PostForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      post:
-    }
-  }
-  _handlePost = (evt) => {
-    console.log(evt.target.value);
-    this.setState({post: evt.target.value})
-  }
-
-  _addToPost = (evt) => {
-    evt.preventDefault();
-    this.setState({post: evt.target.value})
-    let postItem = JSON.stringify(this.state);
-
-
-// fetch post for posts
-
-  }
-
-  _submitPost = (evt) => {
-    evt.preventDefault()
-    console.log(evt);
-    const newPost = {
-      post: this.state.post
-    }
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     post:
+  //   }
+  // }
+  // _handlePost = (evt) => {
+  //   console.log(evt.target.value);
+  //   this.setState({post: evt.target.value})
+  // }
+  //
+  // _addToPost = (evt) => {
+  //   evt.preventDefault();
+  //   this.setState({post: evt.target.value})
+  //   let postItem = JSON.stringify(this.state);
+  //
+  //
+  // }
+  //
+  // _submitPost = (evt) => {
+  //   evt.preventDefault()
+  //   console.log(this.state);
+  //   const newPost = {
+  //     post: this.state.post
+  //   }
+  // }
   render() {
     console.log(this.state);
     return (

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import NavBar from '../components/NavBar';
-// import Post from '../components/Post';
-
+import NavBar from '../components/NavBar';
+// import UserDetailCard from '../components/UserDetailCard'
+import PostListItem from '../components/PostListItem';
+import PostForm from '../components/PostForm';
 
 export default class HomePageView extends Component {
   // constructor(props){
@@ -18,9 +19,10 @@ export default class HomePageView extends Component {
   render(){
     return(
       <div className='wrapper'>
-
-        {/* <Navbar /> */}
+        <NavBar />
         {/* <UserDetailCard /> */}
+        <PostForm />
+        <PostListItem />
 
 
 
