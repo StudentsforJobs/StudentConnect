@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { newPost } from './PostForm';
-import "../postdata";
+import '../postdata';
 
 export default class PostListItem extends Component{
   render(){
