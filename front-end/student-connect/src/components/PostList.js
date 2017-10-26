@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import postItem from './PostItem';
+import postItem from './PostListItem';
 
 
 export default class PostList extends Component {
@@ -9,16 +9,15 @@ export default class PostList extends Component {
       post: []
     }
   }
-// fetch data
+componentDidMount() {
 
+}
 
   render(){
     console.log(this.state);
     return(
       <div>
         <ul>
-          <li><PostListItem /></li>
-          <li>{.}</li>
         </ul>
       </div>
     )

@@ -1,4 +1,4 @@
-const posts = [
+const postdata = [
 {
   id: "0",
   firstName: "Janet",

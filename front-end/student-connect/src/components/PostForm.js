@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
+import postdata from '../postdata';
 
 export default class PostForm extends Component {
   constructor() {
     super();
     this.state = {
-      post:
+    status: ''
     }
   }
-  _handlePost = (evt) => {
+
+  _handleStatus = (evt) => {
     console.log(evt.target.value);
-    this.setState({post: evt.target.value})
+    this.setState({status: evt.target.value})
   }
 
-  _addToPost = (evt) => {
-    evt.preventDefault();
-    this.setState({post: evt.target.value})
-    let postItem = JSON.stringify(this.state);
+_onSubmit = (evt) => {
+  evt.preventDefault();
 
+}
 
-// fetch post for posts
-
-  }
+  // _addToPost = (evt) => {
+  //   evt.preventDefault();
+  //   this.setState({post: evt.target.value})
+  //   let postItem = JSON.stringify(this.state);
+  //
+  //
+  // }
 
   _submitPost = (evt) => {
     evt.preventDefault()
-    console.log(evt);
+    console.log(this.state);
     const newPost = {
       post: this.state.post
     }
