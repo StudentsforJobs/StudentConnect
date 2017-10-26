@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -165,6 +166,18 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Post> findAllPosts() {
         return postRepository.findAll();
+    }
+
+    @Override
+    public List<Post> getPostsBySubject(Subject subject) {
+        List<Post> allPosts = postRepository.findAll();
+        List<Post> subjectPosts = new ArrayList<>();
+        for (Post post : allPosts) {
+            if (post.getSubject().equals(subject)) {
+                subjectPosts.add(post);
+            }
+        }
+        return subjectPosts;
     }
 
     @Override

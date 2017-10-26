@@ -2,11 +2,16 @@ package com.studentconnect.demo.backend.controller;
 
 import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
+import javassist.tools.web.BadHttpRequest;
 import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
@@ -22,19 +27,44 @@ public class ConnectController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public Student logIn(@RequestBody Credentials user) {
         Student current = new Student();
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
         List<Student> students = studentService.findAll();
         for (Student student : students) {
             if (student.getUserName().equals(user.getUsername())) {
                 if(student.getPassword().equals(user.getPassword())) {
                     current = student;
+                } else {
+                    //bad request
                 }
             }
         }
         return current;
     }
 
+    @RequestMapping(path = "/home/{studentId}", method = RequestMethod.GET)
+    public List<Post> getStudentPosts(@PathVariable("studentId") int id) {
+        Student current = studentService.getById(id);
+        Set<Subject> subjects = current.getSubjects();
+        List<Post> studentPosts = new ArrayList<>();
+        for (Subject sub : subjects) {
+            studentPosts.addAll(studentService.getPostsBySubject(sub));
+        }
+        return studentPosts;
+    }
+
+    @RequestMapping(path = "/home/{studentId}", method = RequestMethod.POST)
+    public List<Post> addAndGet(@PathVariable("studentId") int id, @RequestBody Post newPost) {
+        studentService.addPost(newPost);
+        Student current = studentService.getById(id);
+        Set<Subject> subjects = current.getSubjects();
+        List<Post> studentPosts = new ArrayList<>();
+        for (Subject sub : subjects) {
+            studentPosts.addAll(studentService.getPostsBySubject(sub));
+        }
+        return studentPosts;
+
+    }
+
+    //routes below used for postman changes to database
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public void addStudent(@RequestBody Student newStudent) {
         studentService.add(newStudent);
