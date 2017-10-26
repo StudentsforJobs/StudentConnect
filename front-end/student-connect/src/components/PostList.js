@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import postItem from './PostItem';
 
+
 export default class PostList extends Component {
   contructor(props){
     super(props);
