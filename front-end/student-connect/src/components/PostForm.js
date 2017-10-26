@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import postdata from '../postdata';
 
 export default class PostForm extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     post:
-  //   }
-  // }
-  // _handlePost = (evt) => {
-  //   console.log(evt.target.value);
-  //   this.setState({post: evt.target.value})
-  // }
-  //
+  constructor() {
+    super();
+    this.state = {
+    status: ''
+    }
+  }
+
+  _handleStatus = (evt) => {
+    console.log(evt.target.value);
+    this.setState({status: evt.target.value})
+  }
+
+_onSubmit = (evt) => {
+  evt.preventDefault();
+
+}
+
   // _addToPost = (evt) => {
   //   evt.preventDefault();
   //   this.setState({post: evt.target.value})
@@ -19,14 +26,14 @@ export default class PostForm extends Component {
   //
   //
   // }
-  //
-  // _submitPost = (evt) => {
-  //   evt.preventDefault()
-  //   console.log(this.state);
-  //   const newPost = {
-  //     post: this.state.post
-  //   }
-  // }
+
+  _submitPost = (evt) => {
+    evt.preventDefault()
+    console.log(this.state);
+    const newPost = {
+      post: this.state.post
+    }
+  }
   render() {
     console.log(this.state);
     return (

@@ -5,15 +5,19 @@ import PostListItem from '../components/PostListItem';
 import PostForm from '../components/PostForm';
 
 export default class HomePageView extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state ={
-  //     newsfeed = '',
-  //     post = '',
-  //
-  //   }
-  // }
+  constructor(){
+    super();
+    this.state ={
+      student: false,
 
+    }
+  }
+componentDidMount() {
+  axios.get('localhost:8080/???')
+  .then(res => {
+    let student = window.localStorage.getItem('student');
+  })
+}
 
 
   render(){

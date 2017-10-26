@@ -9,7 +9,7 @@ const postdata = [
     subject: "Math"
   },
   {
-    id: '1'
+    id: '1',
     firstName: "Shelly",
     lastName: "Smith",
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste quod, deserunt reiciendis laborum distinctio corrupti totam consequatur, dicta vero. Minima veritatis sequi vitae quisquam, ab exercitationem, blanditiis nemo sunt.',
@@ -18,7 +18,7 @@ const postdata = [
     subject: "Math"
   },
   {
-    id: '2'
+    id: '2',
     firstName: "Ryan",
     lastName: "Gosling",
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste quod, deserunt reiciendis laborum distinctio corrupti totam consequatur, dicta vero. Minima veritatis sequi vitae quisquam, ab exercitationem, blanditiis nemo sunt.',
@@ -27,7 +27,7 @@ const postdata = [
     subject: "Math"
   },
   {
-    id: '3'
+    id: '3',
     firstName: "Tina",
     lastName: "Hart",
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste quod, deserunt reiciendis laborum distinctio corrupti totam consequatur, dicta vero. Minima veritatis sequi vitae quisquam, ab exercitationem, blanditiis nemo sunt.',
@@ -36,7 +36,7 @@ const postdata = [
     subject: "English"
   },
   {
-    id: '4'
+    id: '4',
     firstName: "Matthew",
     lastName: "Santiago",
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste quod, deserunt reiciendis laborum distinctio corrupti totam consequatur, dicta vero. Minima veritatis sequi vitae quisquam, ab exercitationem, blanditiis nemo sunt.',
@@ -45,7 +45,7 @@ const postdata = [
     subject: "English"
   },
   {
-    id: '5'
+    id: '5',
     firstName: "Carla",
     lastName: "Mends",
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste quod, deserunt reiciendis laborum distinctio corrupti totam consequatur, dicta vero. Minima veritatis sequi vitae quisquam, ab exercitationem, blanditiis nemo sunt.',
