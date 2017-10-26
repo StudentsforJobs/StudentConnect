@@ -52,6 +52,7 @@ const postdata = [
     teacherTitle: "Mr.",
     teacherLastName: "Jackson",
     subject: "English"
-  },
+  }
 
 ]
+export default postdata;
