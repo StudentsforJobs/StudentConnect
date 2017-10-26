@@ -16,27 +16,30 @@ class RegistrationView extends Component {
 
 
     }
-    // componentDidMount(){
-    //   this._registerUser()
-    // }
+  //   componentDidMount(){
+  //     this._registerUser()
+  //   }
   // _registerUser = () => {
   //   axios.post('http://localhost:8080/')
+  //   .then(res => {
+  //     console.log(res);
+  //   })
   // }
 
   }
 
   _handleSubmit = (event) => {
     event.preventDefault()
-    console.log("handling submit", event.target)
-
-    console.log("handling submit", event.target.querySelector("input[name='firstPassword']").value)
-    console.log("handling submit", event.target.querySelector("input[name='reEnterPassword']").value)
-
-
+    console.log(this.state);
+    axios.post("localhost:8080/register", {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      password: this.state.lastName
+    })
         if (this.state.firstPassword !== this.state.reEnterPassword) {
           alert("Passwords do not match!")
         }
-        console.log(this.state)
+        this.props.history.push("/login")
     }
 
 
