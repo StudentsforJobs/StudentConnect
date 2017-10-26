@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { newPost } from './PostForm';
 
+
 export default class PostListItem extends Component{
   render(){
     // const newPost = this.props.post
