@@ -47,7 +47,7 @@ export default class PostListItem extends Component {
                 <h5 className="list-group-item">{student.firstName} {student.lastName}</h5>
                 <small>2 hrs ago</small>
               </span>
-              <p className="list-group-item-text">{student.content}</p>
+              <p className="list-group-item-text">{student.status}</p>
               <small>{student.subject}</small>
             </li>
             <li href="#" className="list-group-item list-group-item-action">
@@ -55,7 +55,7 @@ export default class PostListItem extends Component {
                 <h5 className="list-group-item-heading">{student.teacherTitle}{student.teacherLastName}</h5>
                 <small>4 hrs ago</small>
               </span>
-              <p className="list-group-item-text">{student.content}</p>
+              <p className="list-group-item-text">{student.status}</p>
               <small>{student.teacherTitle}{student.teacherLastName}</small>
               <small>{student.subject}</small>
             </li>
