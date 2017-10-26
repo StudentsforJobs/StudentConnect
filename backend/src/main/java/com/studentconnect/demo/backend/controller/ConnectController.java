@@ -2,7 +2,7 @@ package com.studentconnect.demo.backend.controller;
 
 import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
-import com.studentconnect.demo.backend.service.TeacherService;
+import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +14,25 @@ public class ConnectController {
     @Autowired
     StudentService studentService;
 
-    @Autowired
-    TeacherService teacherService;
-
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "/student", method = RequestMethod.GET)
     public List<Student> getStudents() {
         return studentService.findAll();
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public Student logIn(@RequestBody Credentials user) {
+        Student current = new Student();
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        List<Student> students = studentService.findAll();
+        for (Student student : students) {
+            if (student.getUserName().equals(user.getUsername())) {
+                if(student.getPassword().equals(user.getPassword())) {
+                    current = student;
+                }
+            }
+        }
+        return current;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
@@ -64,17 +77,17 @@ public class ConnectController {
 
     @RequestMapping(path = "/teacher", method = RequestMethod.GET)
     public List<Teacher> getTeachers() {
-        return teacherService.findAll();
+        return studentService.findAllTeachers();
     }
 
     @RequestMapping(path = "/teacher", method = RequestMethod.POST)
     public void addTeacher(@RequestBody Teacher newTeacher) {
-        teacherService.add(newTeacher);
+        studentService.addTeacher(newTeacher);
     }
 
     @RequestMapping(path = "/teacher", method = RequestMethod.DELETE)
     public void deleteTeacher(@RequestBody int id) {
-        teacherService.delete(id);
+        studentService.deleteTeacher(id);
     }
 
     @RequestMapping(path = "/subject", method = RequestMethod.GET)
@@ -92,26 +105,24 @@ public class ConnectController {
         studentService.deleteSubject(id);
     }
 
+    @RequestMapping(path = "/post", method = RequestMethod.GET)
+    public List<Post> getAllPosts() {
+        return studentService.findAllPosts();
+    }
 
-    //
-    //
-    //
-
-
-    @RequestMapping(path = "/studentToClass", method = RequestMethod.PATCH)
+    @RequestMapping(path = "/studentToSubject", method = RequestMethod.PATCH)
     public void addStudentToClass(@RequestParam int studId, @RequestParam int subjectId) {
         studentService.addStudentToClass(studId, subjectId);
     }
 
-
     @RequestMapping(path = "/studentToClub", method = RequestMethod.PATCH)
-    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId){
-            studentService.addStudentToClub(studId, clubId);
-        }
+    public void addStudentToClub(@RequestParam int studId, @RequestParam int clubId) {
+        studentService.addStudentToClub(studId, clubId);
+    }
 
     @RequestMapping(path = "/StudentToActivity", method = RequestMethod.PATCH)
     public void addStudentToActivity(@RequestParam int studId, @RequestParam int activityId){
             studentService.addStudentToActivity(studId, activityId);
     }
 
-    }
+}

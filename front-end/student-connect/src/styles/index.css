@@ -1,5 +1,31 @@
+/* #42f4c2 for navbar background color and side gutters
+#fff7c1 creamy color for words and accents, maybe shadows
+white background for posts page, and big space
+
+nav bar across the entire app, minty color above with cream lettering
+
+below is link for potential google font for navbar and <h1>'s
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+
+add the following into css:
+font-family: 'Amatic SC', cursive;
+
+below is idea for cloud vector to layer posted messages on top of:
+
+https://www.google.com/search?rlz=1C5CHFA_enUS754US757&biw=1440&bih=759&tbm=isch&sa=1&ei=S1XxWZeYB8nPjwSEt6QI&q=cloud+vector&oq=cloud+vector&gs_l=psy-ab.3..0l10.8320.9678.0.9804.12.9.0.0.0.0.274.611.0j1j2.3.0....0...1.1.64.psy-ab..9.3.611...0i67k1.0.7DhUL-iYXqk#imgrc=_DY1R2YiTYXj1M:
+
+i.e. when someone adds a new post, this will be the background so the text will look encapsulated inside the cloud.
+
+*/
+
+
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+h1 { font-color:
 }

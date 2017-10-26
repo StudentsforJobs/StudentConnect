@@ -1,0 +1,8 @@
+{
+  "name": "StudentConnect",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lotushack/StudentConnect.git",
+  "author": "lotushack <alonyalafayette1@gmail.com>",
+  "license": "MIT"
+}

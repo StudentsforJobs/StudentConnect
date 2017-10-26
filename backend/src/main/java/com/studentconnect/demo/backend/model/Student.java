@@ -127,6 +127,9 @@ public class Student {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", about='" + about + '\'' +
+                ", clubs=" + clubs +
+                ", activities=" + activities +
+                ", subjects=" + subjects +
                 '}';
     }
 }
