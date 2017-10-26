@@ -25,7 +25,7 @@ const posts = [
   lastName: "Green",
   status: "Hey I am the Math Teacher",
   teacherTitle: "",
-  isTeacher: false,
+  isTeacher: true,
   subject: ""
 
 },
@@ -35,7 +35,7 @@ const posts = [
   lastName: "Smith",
   status: "Hey I am the English teacher",
   teacherTitle: "Mr.",
-  isTeacher: false,
+  isTeacher: true,
   subject: "English"
 
 }
