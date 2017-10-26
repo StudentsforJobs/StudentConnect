@@ -16,7 +16,7 @@ export default class Login extends Component {
   }
 
 _fetchStudents = () => {
-  axios.get('http://localhost:8080')
+  axios.get('http://localhost:8080/student')
   .then(res => {
     console.log(res);
   })
