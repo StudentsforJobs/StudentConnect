@@ -14,6 +14,8 @@ public class Student {
     private String about;
     private Set<Club> clubs;
     private Set<Activity> activities;
+    private boolean isTeacher;
+    private String title;
     private Set<Subject> subjects;
 
     public Student() {
@@ -90,6 +92,23 @@ public class Student {
         this.activities = activities;
     }
 
+    @Column(name = "isteacher")
+    public boolean isTeacher() {
+        return isTeacher;
+    }
+
+    public void setTeacher(boolean teacher) {
+        isTeacher = teacher;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @ManyToMany(mappedBy = "students", fetch = FetchType.LAZY)
     public Set<Subject> getSubjects() {
         return subjects;
@@ -129,6 +148,8 @@ public class Student {
                 ", about='" + about + '\'' +
                 ", clubs=" + clubs +
                 ", activities=" + activities +
+                ", isTeacher=" + isTeacher +
+                ", title='" + title + '\'' +
                 ", subjects=" + subjects +
                 '}';
     }
