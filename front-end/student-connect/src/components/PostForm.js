@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import postdata from '../postdata';
+import axios from 'axios';
 
 export default class PostForm extends Component {
   constructor() {
@@ -14,33 +15,28 @@ export default class PostForm extends Component {
     this.setState({status: evt.target.value})
   }
 
-_onSubmit = (evt) => {
-  evt.preventDefault();
 
-}
-
-  // _addToPost = (evt) => {
-  //   evt.preventDefault();
-  //   this.setState({post: evt.target.value})
-  //   let postItem = JSON.stringify(this.state);
-  //
-  //
-  // }
 
   _submitPost = (evt) => {
     evt.preventDefault()
     console.log(this.state);
-    const newPost = {
-      post: this.state.post
+
+    // axios.post('http://localhost:8080/home/0', {
+    //   status: this.state.status
+    // })
+    // .then(res =>{
+    //   console.log(res);
+    // })
     }
-  }
+
+
   render() {
     console.log(this.state);
     return (
-      <div class="statusPost">
-        <form>
-          <input type="text" className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1"/>
-          <button type="button" className="btn btn-primary btn-sm">Post</button>
+      <div className="statusPost">
+        <form onSubmit={this._submitPost}>
+          <input type="text" onChange={this._handleStatus} className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1"/>
+          <button type="submit" className="btn btn-primary btn-sm">Post</button>
         </form>
       </div>
     )
