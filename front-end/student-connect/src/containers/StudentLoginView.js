@@ -36,12 +36,13 @@ export default class Login extends Component {
 _onSubmit = (evt) => {
   evt.preventDefault();
   axios.post('http://localhost:8080/login', {
-    userName: this.state.userName,
+    username: this.state.userName,
     password: this.state.password
   })
   .then(res => {
+    console.log(res);
     window.localStorage.setItem('student', JSON.stringify(res.data))
-    this.props.history.push('/home')
+    this.props.history.push('/home/' + res.data.id)
   })
   .catch(res => {
     console.log('invalid login info');
@@ -50,7 +51,7 @@ _onSubmit = (evt) => {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="form">
         <div className="jumbotron" id="login">
