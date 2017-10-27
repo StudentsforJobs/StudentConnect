@@ -1,15 +1,23 @@
 package com.studentconnect.demo.backend.model;
 
+import com.oracle.jrockit.jfr.ContentType;
+import com.sun.tools.corba.se.idl.constExpr.Times;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
 public class Post {
     private int id;
-    private int studentId;
-    private int teacherId;
+    private String firstName;
+    private String lastName;
     private String content;
-    private int subjectId;
+    private String teacherTitle;
+    private boolean isTeacher;
+    private String subject;
+    private Timestamp timeStamp;
 
     public Post() {
     }
@@ -24,20 +32,22 @@ public class Post {
         this.id = id;
     }
 
-    public int getStudId() {
-        return studentId;
+    @Column(name = "firstname")
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setStudId(int studId) {
-        this.studentId = studId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public int getTeacherId() {
-        return teacherId;
+    @Column(name = "lastname")
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getContent() {
@@ -48,22 +58,51 @@ public class Post {
         this.content = content;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    @Column(name = "teachertitle")
+    public String getTeacherTitle() {
+        return teacherTitle;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public void setTeacherTitle(String teacherTitle) {
+        this.teacherTitle = teacherTitle;
+    }
+
+    @Column(name = "isteacher")
+    public boolean isTeacher() {
+        return isTeacher;
+    }
+
+    public void setTeacher(boolean teacher) {
+        isTeacher = teacher;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    @Column(name = "timestamp")
+    public Timestamp getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Timestamp timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", studentId=" + studentId +
-                ", teacherId=" + teacherId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", content='" + content + '\'' +
-                ", subjectId=" + subjectId +
+                ", teacherTitle='" + teacherTitle + '\'' +
+                ", isTeacher=" + isTeacher +
+                ", subject='" + subject + '\'' +
                 '}';
     }
 }
