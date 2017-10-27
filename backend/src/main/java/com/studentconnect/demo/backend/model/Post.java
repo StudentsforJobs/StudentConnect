@@ -12,6 +12,7 @@ public class Post {
     private String teacherTitle;
     private boolean isTeacher;
     private String subject;
+    private long timeStamp;
 
     public Post() {
     }

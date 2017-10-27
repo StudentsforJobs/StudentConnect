@@ -43,11 +43,23 @@ public class ConnectController {
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.GET)
     public List<Post> getStudentPosts(@PathVariable("studentId") int id) {
         Student current = studentService.getById(id);
+        String name = current.getFirstName();
+        System.out.println("Student from get request: " + name);
         Set<Subject> subjects = current.getSubjects();
-        List<Post> studentPosts = new ArrayList<>();
-        for (Subject sub : subjects) {
-            studentPosts.addAll(studentService.getPostsBySubject(sub));
+        List<String> subNames = new ArrayList<>();
+        for (Subject subject : subjects) {
+            subNames.add(subject.getName());
         }
+        List<Post> allPosts = studentService.findAllPosts();
+        List<Post> studentPosts = new ArrayList<>();
+        for (String subj : subNames) {
+            for (Post post : allPosts) {
+                if (post.getSubject().equals(subj)) {
+                    studentPosts.add(post);
+                }
+            }
+        }
+
         return studentPosts;
     }
 
