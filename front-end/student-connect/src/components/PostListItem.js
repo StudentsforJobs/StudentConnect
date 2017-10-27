@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import { newPost } from './PostForm';
 import postdata from '../postdata';
-
+import '../styles/homepageview.css';
 export default class PostListItem extends Component {
   // constructor(){
   //   super();
@@ -44,11 +44,12 @@ export default class PostListItem extends Component {
           <ul href="#" className="status-list">
             <li>
               <span>
-                <h5 className="list-group-item">{student.teacherTitle}{student.firstName} {student.lastName}</h5>
-                <small>2 hrs ago</small>
+                <h5 className=" text-left">{student.teacherTitle}{student.firstName} {student.lastName}</h5>
+
               </span>
               <p className="list-group-item-text">{student.status}</p>
               <small>{student.subject}</small>
+              <small>2 hrs ago</small>
             </li>
             {/* <li href="#" className="list-group-item list-group-item-action">
               <span>

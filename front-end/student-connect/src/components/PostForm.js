@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import postdata from '../postdata';
 import axios from 'axios';
+import '../styles/homepageview.css'
 
 export default class PostForm extends Component {
   constructor() {
@@ -36,7 +37,7 @@ export default class PostForm extends Component {
       <div className="statusPost">
         <form onSubmit={this._submitPost}>
           <input type="text" onChange={this._handleStatus} className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1"/>
-          <button type="submit" className="btn btn-primary btn-sm">Post</button>
+          <button type="submit" className="btn  btn-sm">Post</button>
         </form>
       </div>
     )
