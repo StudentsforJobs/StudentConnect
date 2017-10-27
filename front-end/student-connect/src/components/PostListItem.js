@@ -42,14 +42,16 @@ export default class PostListItem extends Component {
       return (
         <div className="list-group">
           <ul href="#" className="status-list">
-            <li>
+            <li className="d-flex flex-column">
               <span>
                 <h5 className=" text-left">{student.teacherTitle}{student.firstName} {student.lastName}</h5>
 
               </span>
-              <p className="list-group-item-text">{student.status}</p>
-              <small>{student.subject}</small>
-              <small>2 hrs ago</small>
+              <p className="list-group-item-text post-status">{student.status}</p>
+              <div className="time-subject-container">
+                <small className="subject text-left">{student.subject}</small>
+                <small className="time text-right">2 hrs ago</small>
+              </div>
             </li>
             {/* <li href="#" className="list-group-item list-group-item-action">
               <span>

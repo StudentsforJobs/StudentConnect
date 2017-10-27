@@ -3,7 +3,8 @@ li {
   background-color: #c7d1e0;
   width: 70%;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 nav {
@@ -24,4 +25,23 @@ form {
 .post-button {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.post-status {
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.subject {
+  margin-top: 10px;
+  width: 50%;
+  text-align: left;
+  margin-right: 419px;
+  margin-top: 20px;
+}
+.time {
+  margin-top: 20px;
 }
