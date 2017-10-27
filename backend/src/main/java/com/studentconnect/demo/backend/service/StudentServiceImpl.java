@@ -169,18 +169,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Post> getPostsBySubject(Subject subject) {
-        List<Post> allPosts = postRepository.findAll();
-        List<Post> subjectPosts = new ArrayList<>();
-        for (Post post : allPosts) {
-            if (post.getSubject().equals(subject)) {
-                subjectPosts.add(post);
-            }
-        }
-        return subjectPosts;
-    }
-
-    @Override
     public Teacher addTeacher(Teacher teacher) {
         return teacherRepository.save(teacher);
     }

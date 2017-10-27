@@ -26,7 +26,6 @@ public interface StudentService {
     Post addPost (Post post);
     void deletePost (int id);
     List<Post> findAllPosts();
-    List<Post> getPostsBySubject(Subject subject);
 
     Teacher addTeacher (Teacher teacher);
     void deleteTeacher (int id);
