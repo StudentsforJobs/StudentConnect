@@ -26,7 +26,7 @@ const postdata = [
   status: "Hey I am the Math Teacher",
   teacherTitle: "Mrs.",
   isTeacher: true,
-  subject: ""
+  subject: "Math"
 
 },
 {

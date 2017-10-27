@@ -40,6 +40,7 @@ _onSubmit = (evt) => {
     password: this.state.password
   })
   .then(res => {
+    console.log(res)
     window.localStorage.setItem('student', JSON.stringify(res.data))
     this.props.history.push('/home')
   })
