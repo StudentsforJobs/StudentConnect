@@ -14,7 +14,7 @@ export default class HomePageView extends Component {
     }
   }
 componentDidMount() {
-  axios.get('localhost:8080/???')
+  axios.get('localhost:8080')
   .then(res => {
     let student = window.localStorage.getItem('student');
   })

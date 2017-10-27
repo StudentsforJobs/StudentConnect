@@ -40,6 +40,7 @@ _onSubmit = (evt) => {
     password: this.state.password
   })
   .then(res => {
+    console.log(res);
     window.localStorage.setItem('student', JSON.stringify(res.data))
     this.props.history.push('/home')
   })
@@ -50,7 +51,7 @@ _onSubmit = (evt) => {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="form">
         <div className="jumbotron" id="login">
