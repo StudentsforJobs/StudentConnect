@@ -1,6 +1,9 @@
 li {
   list-style-type: none;
   background-color: #c7d1e0;
+  width: 70%;
+  margin: auto;
+  padding: 5px;
 }
 
 nav {
@@ -11,4 +14,14 @@ nav {
 button {
   background-color: #233E4C;
   color: white;
+}
+form {
+  width: 50%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.post-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
