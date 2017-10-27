@@ -35,7 +35,7 @@ export default class PostForm extends Component {
     console.log(this.state);
     return (
       <div className="statusPost">
-        <form onSubmit={this._submitPost}>
+        <form  onSubmit={this._submitPost}>
           <input type="text" onChange={this._handleStatus} className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1"/>
           <button type="submit" className="btn  btn-sm">Post</button>
         </form>
