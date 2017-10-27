@@ -51,7 +51,7 @@ _onSubmit = (evt) => {
 
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     return (
       <div className="form">
         <div className="jumbotron" id="login">

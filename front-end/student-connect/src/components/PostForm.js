@@ -21,13 +21,12 @@ export default class PostForm extends Component {
   _submitPost = (evt) => {
     evt.preventDefault()
     console.log(this.state);
-
-    // axios.post('http://localhost:8080/home/0', {
-    //   status: this.state.status
-    // })
-    // .then(res =>{
-    //   console.log(res);
-    // })
+    axios.post('http://localhost:8080/home/0', {
+      status: this.state.status
+    })
+    .then(res =>{
+      console.log(res);
+    })
     }
 
 
