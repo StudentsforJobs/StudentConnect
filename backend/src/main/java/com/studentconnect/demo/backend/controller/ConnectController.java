@@ -30,19 +30,20 @@ public class ConnectController {
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public Student logIn(@RequestBody Credentials user) {
+    public ResponseEntity logIn(@RequestBody Credentials user) {
         Student current = new Student();
         List<Student> students = studentService.findAll();
         for (Student student : students) {
             if (student.getUserName().equals(user.getUsername())) {
                 if(student.getPassword().equals(user.getPassword())) {
                     current = student;
+                    return ResponseEntity.ok(current);
                 } else {
-                    //bad request
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
                 }
             }
         }
-        return current;
+        return null;
     }
 
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.GET)
