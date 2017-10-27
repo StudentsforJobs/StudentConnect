@@ -1,6 +1,11 @@
 package com.studentconnect.demo.backend.model;
 
+import com.oracle.jrockit.jfr.ContentType;
+import com.sun.tools.corba.se.idl.constExpr.Times;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
@@ -12,7 +17,7 @@ public class Post {
     private String teacherTitle;
     private boolean isTeacher;
     private String subject;
-    private long timeStamp;
+    private Timestamp timeStamp;
 
     public Post() {
     }
@@ -77,6 +82,15 @@ public class Post {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    @Column(name = "timestamp")
+    public Timestamp getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Timestamp timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override
