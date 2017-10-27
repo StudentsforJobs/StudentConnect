@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 // import UserDetailCard from '../components/UserDetailCard'
 import PostListItem from '../components/PostListItem';
 import PostForm from '../components/PostForm';
-import axios from 'axios'
+import axios from 'axios';
 
 export default class HomePageView extends Component {
   constructor(){
@@ -14,8 +14,11 @@ export default class HomePageView extends Component {
     }
   }
 componentDidMount() {
-  axios.get('localhost:8080')
+  const id = this.props.match.params.id;
+  console.log(id);
+  axios.get(`http://localhost:8080/home/${id}`)
   .then(res => {
+    console.log(res);
     let student = window.localStorage.getItem('student');
   })
 }

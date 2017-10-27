@@ -16,7 +16,7 @@ class App extends Component {
           <Route exact path="/" component={StudentLoginView} />
           <Route exact path="/Registration" component={RegistrationView} />
           {/* <Route exact path="/Create" component={CreateProfileView} /> */}
-          <Route exact path="/Home" component={HomePageView} />
+          <Route exact path="/Home/:id" component={HomePageView} />
           {/* <Route exact path="/Students" component={ClassmatesView} /> */}
           {/* <Route exact path="/Profile" component={ProfileView} /> */}
           </Switch>
