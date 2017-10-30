@@ -41,7 +41,7 @@ _onSubmit = (evt) => {
     this.props.history.push('/home/' + res.data.id)
   })
   .catch(res => {
-    console.log('invalid login info');
+    console.log('invalid login info'); 
   })
 }
 

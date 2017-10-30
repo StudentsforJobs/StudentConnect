@@ -5,27 +5,33 @@ export default class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    status: ''
+    content: '',
+    subject: ''
     }
   }
 
 
   _handleStatus = (evt) => {
     // console.log(evt.target.value);
-    this.setState({status: evt.target.value})
+    this.setState({content: evt.target.value})
   }
 
 
 
   _submitPost = (evt) => {
     evt.preventDefault()
-    console.log(this.props);
-    axios.post(`http://localhost:8080/home`, {
-      status: this.state.status
+    // console.log(this.state);
+    axios.post(`http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`, {
+      content: this.state.content,
+      firstName:'',
+      lastName:'',
+      isTeacher: false,
+      teacherTitle: null,
     })
     .then(res =>{
       console.log(res);
     })
+    
     }
 
     _getStudent(){
@@ -44,7 +50,7 @@ export default class PostForm extends Component {
     }
 
   render() {
-    console.log(this.state);
+    // console.log(this);
     return (
       <div className="statusPost d-flex justify-content">
         <form  onSubmit={this._submitPost}>
