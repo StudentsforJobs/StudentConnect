@@ -15,7 +15,7 @@
 .student-connect-img {
   width: 150px;
   height: 150px;
-  margin-left: 50px;
+  margin-left: 285px;
 
 }
 
@@ -29,4 +29,8 @@
 
 .my-4 {
   background-color: white;
+}
+
+.display-3 {
+  margin-top: 25px;
 }
