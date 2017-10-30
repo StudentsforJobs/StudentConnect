@@ -2,25 +2,15 @@ package com.studentconnect.demo.backend.controller;
 
 import com.studentconnect.demo.backend.model.*;
 import com.studentconnect.demo.backend.service.StudentService;
-import com.sun.tools.corba.se.idl.constExpr.Times;
-import javassist.tools.web.BadHttpRequest;
-import org.apache.tomcat.jni.Time;
-import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.sql.Timestamp;
-
-import static com.oracle.jrockit.jfr.ContentType.Timestamp;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
