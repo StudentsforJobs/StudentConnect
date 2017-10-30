@@ -28,6 +28,20 @@ export default class PostForm extends Component {
     })
     }
 
+    _getStudent(){
+    JSON.parse(getItem('student'))
+    }
+
+    _makeSubjects() {
+    let subs = getStudent().subjects
+    subs.map(item => <option value="">{item.name}</option>)
+    }
+
+    _getBuildOptions () {
+    return <select>
+      {makeSubjects()}
+    </select>
+    }
 
   render() {
     console.log(this.state);
