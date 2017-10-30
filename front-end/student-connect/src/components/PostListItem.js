@@ -1,24 +1,14 @@
 import React, {Component} from 'react';
-import PostForm from './PostForm';
+// import PostForm from './PostForm';
 import '../styles/homepageview.css';
 import postdata from '../postdata';
-import axios from 'axios';
 
 export default class PostListItem extends Component {
 
-//   componentDidMount(){
-//     this._getStatus()
-//   }
-//
-// _getStatus = () => {
-//   axios.get(`http://localhost:8080/student`)
-//   .then(res => {
-//     console.log(res);
-//   })
-// }
 
   render() {
-    const newPost = this.props.status
+    // console.log(this);
+    const newPost = this.props.content
     // console.log("newPost", newPost);
     const data = postdata.map((student) => {
       return (
@@ -29,7 +19,7 @@ export default class PostListItem extends Component {
                 <h5 className=" text-left">{student.teacherTitle}  {student.firstName} {student.lastName}</h5>
 
               </span>
-              <p className="list-group-item-text post-status">{student.status}</p>
+              <p className="list-group-item-text post-status">{student.content}</p>
               <div className="time-subject-container">
                 <small className="subject text-left">{student.subject}</small>
                 <small className="time text-right">2 hrs ago</small>
