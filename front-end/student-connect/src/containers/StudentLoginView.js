@@ -5,7 +5,7 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      userName: "",
+      username: "",
       password: ""
     }
 
@@ -16,14 +16,9 @@ export default class Login extends Component {
 
   _fetchStudents = () => {
     axios.get('http://localhost:8080/student').then(res => {
-      console.log(res);
+      // console.log(res);
     })
   }
-
-  // _validateForm = (evt) => {
-  //   return this.state.userName.length > 0 && this.state.password.length > 0;
-  //
-  // }
 
   _handleUsernameChange = (evt) => {
     this.setState({userName: evt.target.value})
@@ -40,7 +35,7 @@ _onSubmit = (evt) => {
     password: this.state.password
   })
   .then(res => {
-    console.log(res);
+    // console.log(res);
     window.localStorage.setItem('student', JSON.stringify(res.data))
     this.props.history.push('/home/' + res.data.id)
   })
@@ -51,7 +46,7 @@ _onSubmit = (evt) => {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="form">
         <div className="jumbotron" id="login">

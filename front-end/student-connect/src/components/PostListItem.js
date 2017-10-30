@@ -1,42 +1,24 @@
 import React, {Component} from 'react';
-// import { newPost } from './PostForm';
-import postdata from '../postdata';
+import PostForm from './PostForm';
 import '../styles/homepageview.css';
-export default class PostListItem extends Component {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     firstName: '',
-  //     lastName: '',
-  //     status: '',
-  //     teacherTitle: '',
-  //     // isTeacher: false,
-  //     subject: ''
-  //   }
-  // }
-  //
-  // _handlePost = (evt) => {
-  //   // console.log(evt.target.value);
-  //   this.setState({firstName: evt.target.value, lastName: evt.target.value, status: evt.target.value, teacherTitle: evt.target.value, subject:evt.target.value})
-  // }
-  //
-  // _addToPost = (evt) => {
-  //   evt.preventDefault();
-  //   this.setState({status: evt.target.value})
-  //   let postItem = JSON.stringify(this.state);
-  //
-  //
-  // }
-  //
-  // _submitPost = (evt) => {
-  //   evt.preventDefault()
-  //   console.log(this.state);
-  //
-  //   }
+import postdata from '../postdata';
+import axios from 'axios';
 
+export default class PostListItem extends Component {
+
+//   componentDidMount(){
+//     this._getStatus()
+//   }
+//
+// _getStatus = () => {
+//   axios.get(`http://localhost:8080/student`)
+//   .then(res => {
+//     console.log(res);
+//   })
+// }
 
   render() {
-    // const newPost = this.props.post
+    const newPost = this.props.status
     // console.log("newPost", newPost);
     const data = postdata.map((student) => {
       return (

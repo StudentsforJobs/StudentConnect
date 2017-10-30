@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import postdata from '../postdata';
 import axios from 'axios';
 import '../styles/homepageview.css'
-
 export default class PostForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
     status: ''
     }
   }
 
+
   _handleStatus = (evt) => {
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
     this.setState({status: evt.target.value})
   }
 
@@ -20,8 +19,8 @@ export default class PostForm extends Component {
 
   _submitPost = (evt) => {
     evt.preventDefault()
-    console.log(this.state);
-    axios.post('http://localhost:8080/home/0', {
+    console.log(this.props);
+    axios.post(`http://localhost:8080/home`, {
       status: this.state.status
     })
     .then(res =>{
