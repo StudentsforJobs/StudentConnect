@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import '../styles/login.css';
 
 export default class Login extends Component {
   constructor() {
@@ -55,6 +56,7 @@ _onSubmit = (evt) => {
     return (
       <div className="form">
         <div className="jumbotron" id="login">
+          <img src="../public/images/studentconnect.png" alt="" className="student-connect-img"/>
           <h1 className="display-3">Welcome!</h1>
           <p className="lead">Log In Below!</p>
           <hr className="my-4"/>
@@ -67,7 +69,7 @@ _onSubmit = (evt) => {
               <input onChange={this._handlePasswordChange} id="password" value={this.state.password} placeholder="password" type="password" className=".form-control" required autoComplete="off"/>
             </div>
 
-            <button type='submit' className="btn btn-success">Log In</button>
+            <button type='submit' className="btn btn-success login-btn">Log In</button>
             <p className="register">
               <a href='/Registration'>Register</a>
             </p>
