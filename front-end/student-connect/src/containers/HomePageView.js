@@ -9,7 +9,7 @@ export default class HomePageView extends Component {
   constructor(){
     super();
     this.state ={
-      student: false,
+      isTeacher: false,
 
     }
   }
@@ -18,7 +18,7 @@ componentDidMount() {
   console.log(id);
   axios.get(`http://localhost:8080/home/${id}`)
   .then(res => {
-    console.log(res);
+    // console.log(res);
     let student = window.localStorage.getItem('student');
   })
 }
