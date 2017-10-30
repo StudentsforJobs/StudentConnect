@@ -1,11 +1,7 @@
 package com.studentconnect.demo.backend.model;
 
-import com.oracle.jrockit.jfr.ContentType;
-import com.sun.tools.corba.se.idl.constExpr.Times;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
