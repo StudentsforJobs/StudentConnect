@@ -44,7 +44,7 @@ export default class PostListItem extends Component {
           <ul href="#" className="status-list">
             <li className="d-flex flex-column">
               <span>
-                <h5 className=" text-left">{student.teacherTitle}{student.firstName} {student.lastName}</h5>
+                <h5 className=" text-left">{student.teacherTitle}  {student.firstName} {student.lastName}</h5>
 
               </span>
               <p className="list-group-item-text post-status">{student.status}</p>

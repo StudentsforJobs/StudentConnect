@@ -1,0 +1,36 @@
+.jumbotron {
+  background-color: #213b66;
+  color: white;
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.welcome-ctr {
+  margin: auto;
+  text-align: center;
+  padding: 0;
+}
+
+.student-connect-img {
+  width: 150px;
+  height: 150px;
+  margin-left: 280px;
+
+}
+
+.login-btn {
+  background-color: #6d92ce;
+}
+
+.register {
+  margin-top: 10px;
+}
+
+.my-4 {
+  background-color: white;
+}
+
+.display-3 {
+  margin-top: 25px;
+}
