@@ -11,10 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.sql.Timestamp;
 
 import static com.oracle.jrockit.jfr.ContentType.Timestamp;
 
@@ -68,7 +72,11 @@ public class ConnectController {
 
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.POST)
     public List<Post> addAndGet(@PathVariable("studentId") int id, @RequestBody Post newPost) {
-        //newPost.setTimeStamp();
+        long now = System.currentTimeMillis();
+        System.out.println("Now: " + now);
+        Timestamp current1 = new Timestamp(now);
+        System.out.println("Current: " + current1);
+        newPost.setTimeStamp(current1);
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
         Set<Subject> subjects = current.getSubjects();
