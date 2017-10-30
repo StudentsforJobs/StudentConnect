@@ -15,18 +15,25 @@ export default class PostForm extends Component {
     // console.log(evt.target.value);
     this.setState({content: evt.target.value})
   }
+
 _handleStatusSubject = (evt) => {
-  this.setState({content: select.value})
+  this.setState({subject: evt.target.value})
 }
+
   _submitPost = (evt) => {
     evt.preventDefault()
     // console.log(this.state);
     axios.post(`http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`, {
       content: this.state.content,
-      firstName:'',
-      lastName:'',
-      isTeacher: false,
-      teacherTitle: null,
+      firstName: this._getStudent().firstName,
+      lastName: this._getStudent().lastName,
+      teacherr: this._getStudent().teacher,
+      teacherTitle: this._getStudent().teacherTitle,
+      subject: "Geometry"
+      // firstName:'',
+      // lastName:'',
+      // isTeacher: false,
+      // teacherTitle: null
     })
     .then(res =>{
       console.log(res);
