@@ -56,8 +56,10 @@ _onSubmit = (evt) => {
     return (
       <div className="form">
         <div className="jumbotron" id="login">
-          <img src="../public/images/studentconnect.png" alt="" className="student-connect-img"/>
-          <h1 className="display-3">Welcome!</h1>
+            <div className="container welcome-ctr d-flex flex-row justify-content">
+              <img src="/studentconnect.png" alt="" className="student-connect-img"/>
+              <h1 className="display-3 ">Welcome!</h1>
+          </div>
           <p className="lead">Log In Below!</p>
           <hr className="my-4"/>
           <form onSubmit={this._onSubmit}>
