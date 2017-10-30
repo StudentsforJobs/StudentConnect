@@ -43,20 +43,9 @@ public class ConnectController {
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.GET)
     public List<Post> getStudentPosts(@PathVariable("studentId") int id) {
         Student current = studentService.getById(id);
-        Set<Subject> subjects = current.getSubjects();
-        List<String> subNames = new ArrayList<>();
-        for (Subject subject : subjects) {
-            subNames.add(subject.getName());
-        }
-        List<Post> allPosts = studentService.findAllPosts();
-        List<Post> studentPosts = new ArrayList<>();
-        for (String subj : subNames) {
-            for (Post post : allPosts) {
-                if (post.getSubject().equals(subj)) {
-                    studentPosts.add(post);
-                }
-            }
-        }
+
+        List<Post> studentPosts = studentService.getPostsByStudent(current);
+        
         return studentPosts;
     }
 
@@ -69,20 +58,7 @@ public class ConnectController {
         newPost.setTimeStamp(current1);
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
-        Set<Subject> subjects = current.getSubjects();
-        List<String> subNames = new ArrayList<>();
-        for (Subject subject : subjects) {
-            subNames.add(subject.getName());
-        }
-        List<Post> allPosts = studentService.findAllPosts();
-        List<Post> studentPosts = new ArrayList<>();
-        for (String subj : subNames) {
-            for (Post post : allPosts) {
-                if (post.getSubject().equals(subj)) {
-                    studentPosts.add(post);
-                }
-            }
-        }
+        List<Post> studentPosts = studentService.getPostsByStudent(current);
         return studentPosts;
     }
 

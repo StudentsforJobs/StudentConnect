@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -166,6 +167,25 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Post> findAllPosts() {
         return postRepository.findAll();
+    }
+
+    @Override
+    public List<Post> getPostsByStudent(Student student) {
+        Set<Subject> subjects = student.getSubjects();
+        List<String> subNames = new ArrayList<>();
+        for (Subject subject : subjects) {
+            subNames.add(subject.getName());
+        }
+        List<Post> allPosts = this.findAllPosts();
+        List<Post> studentPosts = new ArrayList<>();
+        for (String subj : subNames) {
+            for (Post post : allPosts) {
+                if (post.getSubject().equals(subj)) {
+                    studentPosts.add(post);
+                }
+            }
+        }
+        return studentPosts;
     }
 
     @Override
