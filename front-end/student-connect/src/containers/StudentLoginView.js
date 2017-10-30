@@ -71,7 +71,7 @@ _onSubmit = (evt) => {
               <input onChange={this._handlePasswordChange} id="password" value={this.state.password} placeholder="password" type="password" className=".form-control" required autoComplete="off"/>
             </div>
 
-            <button type='submit' className="btn btn-success login-btn">Log In</button>
+            <button type='submit' className="btn login-btn">Log In</button>
             <p className="register">
               <a href='/Registration'>Register</a>
             </p>
