@@ -5,7 +5,7 @@ export default class UserDetailCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: '',
+      id: 0,
       firstName: '',
       lastName: '',
       currentStudent: this._getStudent()
@@ -31,7 +31,7 @@ render(){
 
   return(
   <div className="profile-card" >
-    <img className="card-img-top profile-image" src={`../public/student${this.state.id}`} alt="StudentImg"/>
+    <img className="card-img-top profile-image" src={`/images/student-${this.state.currentStudent.id}.jpg`} alt="student"/>
     <div className="card-block">
       <h4 className="card-title">{this.state.currentStudent.firstName} {this.state.currentStudent.lastName}</h4>
       <p className="card-text">Iron Yard High School</p>
