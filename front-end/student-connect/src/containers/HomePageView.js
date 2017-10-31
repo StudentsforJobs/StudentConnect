@@ -39,7 +39,7 @@ export default class HomePageView extends Component {
     return(
       <div className='wrapper'>
         <NavBar />
-        <UserDetailCard />
+        <UserDetailCard students={this.state.students}/>
         <PostForm handleSubmit={this._handleSubmit}/>
         <PostListItem students={this.state.students}/>
 

@@ -5,17 +5,11 @@ export default class UserDetailCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
+      students: []
     }
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:8080/home`)
-    .then(res => {
-      console.log(res);
-    })
-  }
+
 
 
 render(){
