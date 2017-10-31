@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Transactional
@@ -186,6 +184,34 @@ public class StudentServiceImpl implements StudentService {
             }
         }
         return studentPosts;
+    }
+
+    @Override
+    public List<Post> sortPosts(List<Post> posts) {
+        List<Post> temp = new ArrayList<>();
+        int max;
+        int del;
+        int length = posts.size();
+        for (int i = 0; i < length; i++) {
+            max = 0;
+            for (Post post : posts) {
+                if (post.getId() > max) {
+                    max = post.getId();
+                }
+            }
+            temp.add(postRepository.findOne(max));
+            int j = 0;
+            del = 0;
+            for (Post post : posts) {
+                if (post.getId() == max) {
+                    del = j;
+                }
+                j += 1;
+            }
+            posts.remove(del);
+        }
+
+        return temp;
     }
 
     @Override
