@@ -10,37 +10,38 @@ export default class HomePageView extends Component {
     super(props);
     this.state ={
       isTeacher: false,
+      students: [],
       content: '',
-      students: []
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this._fetchPost()
   }
 
 
   _fetchPost = (evt) => {
     const url = `http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`
-    console.log(url, 'url');
+    // console.log(url, 'url');
     axios.get(url)
     .then(res => {
-    console.log('response in posetlistitem', window);
+    console.log('response in posetlistitem', res);
     this.setState({students: res.data})
     })
   }
   _handleSubmit = (data) => {
-    this.setState({ content: data })
+    console.log(data);
+    this.setState({ students: data })
   }
 
   render(){
-    console.log(this.props);
+    // console.log(this.state);
     return(
       <div className='wrapper'>
         <NavBar />
         <UserDetailCard />
         <PostForm handleSubmit={this._handleSubmit}/>
-        <PostListItem content={this.state.content}/>
+        <PostListItem students={this.state.students}/>
 
       </div>
     )

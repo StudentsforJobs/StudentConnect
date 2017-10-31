@@ -33,8 +33,8 @@ _handleStatusSubject = (evt) => {
       timeStamp: this._getStudent().timeStamp
     })
     .then(res =>{
-      console.log("res data", res);
-      this.props._handleSubmit
+      // console.log("res data", this.props);
+      // this.props._handleSubmit
     })
 
     }

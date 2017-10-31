@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.sql.Timestamp;
 
@@ -51,7 +52,11 @@ public class ConnectController {
     public List<Post> addAndGet(@PathVariable("studentId") int id, @RequestBody Post newPost) {
         long now = System.currentTimeMillis();
         Timestamp currentTime = new Timestamp(now);
-        newPost.setTimeStamp(currentTime);
+
+        String timeString = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(currentTime);
+        System.out.println("Time of post as a string: " + timeString);
+        newPost.setTimeStamp(timeString);
+
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
         List<Post> studentPosts = studentService.getPostsByStudent(current);

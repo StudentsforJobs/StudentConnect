@@ -16,7 +16,9 @@
   width: 150px;
   height: 150px;
   margin-left: 280px;
-
+  background-color: white;
+  border-radius: 100%;
+  margin-right: 20px;
 }
 
 .login-btn {
