@@ -42,6 +42,8 @@ public class ConnectController {
     public List<Post> getStudentPosts(@PathVariable("studentId") int id) {
         Student current = studentService.getById(id);
         List<Post> studentPosts = studentService.getPostsByStudent(current);
+        List<Post> temp = studentService.sortPosts(studentPosts);
+        studentPosts = temp;
         return studentPosts;
     }
 
@@ -53,6 +55,8 @@ public class ConnectController {
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
         List<Post> studentPosts = studentService.getPostsByStudent(current);
+        List<Post> temp = studentService.sortPosts(studentPosts);
+        studentPosts = temp;
         return studentPosts;
     }
 

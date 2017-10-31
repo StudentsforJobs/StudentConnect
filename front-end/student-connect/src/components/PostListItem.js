@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PostForm from './PostForm';
+import PostForm from './PostForm';
 import '../styles/homepageview.css';
 import postdata from '../postdata';
 // import axios from 'axios';
@@ -20,10 +20,8 @@ export default class PostListItem extends Component {
 //             console.log("response", response);
 // }
   render() {
-    // console.log(this);
-    const newPost = this.props.content
-    // console.log("newPost", newPost);
-    const data = postdata.map((student) => {
+
+    const data = this.state.students.map((student) => {
       return (
         <div className="list-group">
           <ul href="#" className="status-list">
