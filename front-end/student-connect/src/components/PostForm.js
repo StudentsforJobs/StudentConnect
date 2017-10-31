@@ -27,7 +27,7 @@ _handleStatusSubject = (evt) => {
       content: this.state.content,
       firstName: this._getStudent().firstName,
       lastName: this._getStudent().lastName,
-      teacherr: this._getStudent().teacher,
+      teacher: this._getStudent().teacher,
       teacherTitle: this._getStudent().teacherTitle,
       subject: "Geometry"
       // firstName:'',
@@ -36,7 +36,7 @@ _handleStatusSubject = (evt) => {
       // teacherTitle: null
     })
     .then(res =>{
-      console.log(res);
+
     })
 
     }
@@ -47,7 +47,7 @@ _handleStatusSubject = (evt) => {
 
     _makeSubjects() {
     let subs = this._getStudent().subjects
-    return subs.map(item => <option>{item.name}</option>)
+    return subs.map((item, idx) => <option key={idx}>{item.name}</option>)
     }
 
     _getBuildOptions () {
