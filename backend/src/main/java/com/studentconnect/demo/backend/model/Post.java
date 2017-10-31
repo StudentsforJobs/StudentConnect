@@ -13,7 +13,7 @@ public class Post {
     private String teacherTitle;
     private boolean isTeacher;
     private String subject;
-    private Timestamp timeStamp;
+    private String timeStamp;
 
     public Post() {
     }
@@ -81,11 +81,11 @@ public class Post {
     }
 
     @Column(name = "timestamp")
-    public Timestamp getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
