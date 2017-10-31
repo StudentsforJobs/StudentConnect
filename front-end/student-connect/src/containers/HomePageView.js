@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
-// import UserDetailCard from '../components/UserDetailCard'
+import UserDetailCard from '../components/UserDetailCard'
 import PostListItem from '../components/PostListItem';
 import PostForm from '../components/PostForm';
 import axios from 'axios';
@@ -28,7 +28,7 @@ componentDidMount() {
     return(
       <div className='wrapper'>
         <NavBar />
-        {/* <UserDetailCard /> */}
+        <UserDetailCard />
         <PostForm />
         <PostListItem />
 
