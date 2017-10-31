@@ -7,9 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.sql.Timestamp;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
@@ -43,46 +41,18 @@ public class ConnectController {
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.GET)
     public List<Post> getStudentPosts(@PathVariable("studentId") int id) {
         Student current = studentService.getById(id);
-        Set<Subject> subjects = current.getSubjects();
-        List<String> subNames = new ArrayList<>();
-        for (Subject subject : subjects) {
-            subNames.add(subject.getName());
-        }
-        List<Post> allPosts = studentService.findAllPosts();
-        List<Post> studentPosts = new ArrayList<>();
-        for (String subj : subNames) {
-            for (Post post : allPosts) {
-                if (post.getSubject().equals(subj)) {
-                    studentPosts.add(post);
-                }
-            }
-        }
+        List<Post> studentPosts = studentService.getPostsByStudent(current);
         return studentPosts;
     }
 
     @RequestMapping(path = "/home/{studentId}", method = RequestMethod.POST)
     public List<Post> addAndGet(@PathVariable("studentId") int id, @RequestBody Post newPost) {
         long now = System.currentTimeMillis();
-        System.out.println("Now: " + now);
-        Timestamp current1 = new Timestamp(now);
-        System.out.println("Current: " + current1);
-        newPost.setTimeStamp(current1);
+        Timestamp currentTime = new Timestamp(now);
+        newPost.setTimeStamp(currentTime);
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
-        Set<Subject> subjects = current.getSubjects();
-        List<String> subNames = new ArrayList<>();
-        for (Subject subject : subjects) {
-            subNames.add(subject.getName());
-        }
-        List<Post> allPosts = studentService.findAllPosts();
-        List<Post> studentPosts = new ArrayList<>();
-        for (String subj : subNames) {
-            for (Post post : allPosts) {
-                if (post.getSubject().equals(subj)) {
-                    studentPosts.add(post);
-                }
-            }
-        }
+        List<Post> studentPosts = studentService.getPostsByStudent(current);
         return studentPosts;
     }
 
