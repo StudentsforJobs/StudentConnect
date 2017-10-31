@@ -15,7 +15,7 @@ export default class PostListItem extends Component {
 
   render() {
 console.log(this.props);
-    const data = this.state.students.map((student) => {
+    const data = this.props.students.map((student) => {
       return (
         <div className="list-group" key={student.id}>
           <ul href="#" className="status-list">
