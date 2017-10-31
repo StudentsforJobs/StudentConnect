@@ -41,7 +41,7 @@ _onSubmit = (evt) => {
     this.props.history.push('/home/' + res.data.id)
   })
   .catch(res => {
-    console.log('invalid login info'); 
+    console.log('invalid login info');
   })
 }
 
@@ -51,7 +51,7 @@ _onSubmit = (evt) => {
     return (
       <div className="form">
         <div className="jumbotron" id="login">
-            <div className="container welcome-ctr d-flex flex-row justify-content mx-auto">
+            <div className="container d-flex flex-column welcome-ctr d-flex flex-row justify-content mx-auto">
               <img src="/studentconnect.png" alt="" className="student-connect-img"/>
               <h1 className="display-3 ">Welcome!</h1>
           </div>
