@@ -8,7 +8,7 @@ export default class NavBar extends Component {
               <a className="navbar-brand title">Student Connect</a>
               <a href="/" className="nav-options">Logout</a>
               <a href="/profile" className="nav-options" >Profile</a>
-              <a href="/classmates" className="nav-options">Classmates</a>
+              <a href="/Students" className="nav-options">Classmates</a>
               <img src="/studentconnect.png" width="30" height="30" className="d-inline-block align-top" alt="Student Connect"/>
             </nav>)
 }
