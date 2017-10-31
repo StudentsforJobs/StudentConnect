@@ -1,16 +1,34 @@
 import React, {Component} from 'react';
-// import PostForm from './PostForm';
+import PostForm from './PostForm';
 import '../styles/homepageview.css';
 import postdata from '../postdata';
+import axios from 'axios';
 
 export default class PostListItem extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      students: []
+    }
+  }
+  componentDidMount() {
+    this._fetchPost()
+  }
+
+  _fetchPost = (evt) => {
+    const url = `http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`
+    console.log(url, 'url');
+    axios.get(url)
+    .then(res => {
+    console.log('response in posetlistitem', res);
+    this.setState({students: res.data})
+    })
+  }
 
 
   render() {
-    // console.log(this);
-    const newPost = this.props.content
-    // console.log("newPost", newPost);
-    const data = postdata.map((student) => {
+
+    const data = this.state.students.map((student) => {
       return (
         <div className="list-group">
           <ul href="#" className="status-list">
@@ -25,15 +43,7 @@ export default class PostListItem extends Component {
                 <small className="time text-right">2 hrs ago</small>
               </div>
             </li>
-            {/* <li href="#" className="list-group-item list-group-item-action">
-              <span>
-                <h5 className="list-group-item-heading">{student.teacherTitle}{student.teacherLastName}</h5>
-                <small>4 hrs ago</small>
-              </span>
-              <p className="list-group-item-text">{student.status}</p>
-              <small>{student.teacherTitle}{student.teacherLastName}</small>
-              <small>{student.subject}</small>
-            </li> */}
+
           </ul>
         </div>
       )

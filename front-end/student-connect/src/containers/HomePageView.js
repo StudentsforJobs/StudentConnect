@@ -14,15 +14,8 @@ export default class HomePageView extends Component {
     }
   }
 componentDidMount() {
-  const id = this.props.match.params.id;
-  console.log(id);
-  axios.get(`http://localhost:8080/home/${id}`)
-  .then(res => {
-    // console.log(res);
-    let student = window.localStorage.getItem('student');
-  })
-}
 
+}
 
   render(){
     return(
@@ -31,8 +24,6 @@ componentDidMount() {
         <UserDetailCard />
         <PostForm />
         <PostListItem />
-
-
 
       </div>
     )
