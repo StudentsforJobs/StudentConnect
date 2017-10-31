@@ -5,7 +5,7 @@ export default class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    content: '',
+    content: [],
     subject: ''
     }
   }
@@ -29,14 +29,12 @@ _handleStatusSubject = (evt) => {
       lastName: this._getStudent().lastName,
       teacher: this._getStudent().teacher,
       teacherTitle: this._getStudent().teacherTitle,
-      subject: "Geometry"
-      // firstName:'',
-      // lastName:'',
-      // isTeacher: false,
-      // teacherTitle: null
+      subject: "Geometry",
+      timeStamp: this._getStudent().timeStamp
     })
     .then(res =>{
-
+      // console.log("res data", this.props);
+      // this.props._handleSubmit
     })
 
     }
@@ -47,7 +45,7 @@ _handleStatusSubject = (evt) => {
 
     _makeSubjects() {
     let subs = this._getStudent().subjects
-    return subs.map((item, idx) => <option key={idx}>{item.name}</option>)
+    return subs.map((item, idx) => <option key={item.id}>{item.name}</option>)
     }
 
     _getBuildOptions () {
