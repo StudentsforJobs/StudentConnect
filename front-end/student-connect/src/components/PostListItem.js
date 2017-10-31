@@ -2,23 +2,30 @@ import React, {Component} from 'react';
 import PostForm from './PostForm';
 import '../styles/homepageview.css';
 import postdata from '../postdata';
-// import axios from 'axios';
-
+import axios from 'axios';
 
 export default class PostListItem extends Component {
-//   constructor() {
-//     super()
-//     this.state = {
-//       post: ""
-//     }
-//   }
-//   componentDidMount(){
-//     this._fetchPosts();
-//   }
-// _fetchPosts (){
-//   axios.get(`http://localhost:8080/home/${id}`)         .then(response => {
-//             console.log("response", response);
-// }
+  constructor(props){
+    super(props);
+    this.state = {
+      students: []
+    }
+  }
+  componentDidMount() {
+    this._fetchPost()
+  }
+
+  _fetchPost = (evt) => {
+    const url = `http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`
+    console.log(url, 'url');
+    axios.get(url)
+    .then(res => {
+    console.log('response in posetlistitem', res);
+    this.setState({students: res.data})
+    })
+  }
+
+
   render() {
 
     const data = this.state.students.map((student) => {
@@ -30,7 +37,7 @@ export default class PostListItem extends Component {
                 <h5 className=" text-left">{student.teacherTitle}  {student.firstName} {student.lastName}</h5>
 
               </span>
-              <p className="list-group-item-text post-status">{student.status}</p>
+              <p className="list-group-item-text post-status">{student.content}</p>
               <div className="time-subject-container">
                 <small className="subject text-left">{student.subject}</small>
                 <small className="time text-right">2 hrs ago</small>
