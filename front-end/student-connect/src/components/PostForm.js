@@ -20,9 +20,10 @@ _handleStatusSubject = (evt) => {
   this.setState({subject: evt.target.value})
 }
 
+
+
   _submitPost = (evt) => {
     evt.preventDefault()
-    // console.log(this.state);
     axios.post(`http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`, {
       content: this.state.content,
       firstName: this._getStudent().firstName,
@@ -33,10 +34,9 @@ _handleStatusSubject = (evt) => {
       timeStamp: this._getStudent().timeStamp
     })
     .then(res =>{
-      // console.log("res data", this.props);
-      // this.props._handleSubmit
+      console.log("res data", res);
+      this.props._handleSubmit(res.data)
     })
-
     }
 
     _getStudent(){
