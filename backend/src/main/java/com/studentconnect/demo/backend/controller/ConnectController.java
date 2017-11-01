@@ -54,8 +54,8 @@ public class ConnectController {
         Timestamp currentTime = new Timestamp(now);
 
         String timeString = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(currentTime);
-        System.out.println("Time of post as a string: " + timeString);
-        newPost.setTimeStamp(timeString);
+        String cutTime = timeString.substring(0,16);
+        newPost.setTimeStamp(cutTime);
 
         studentService.addPost(newPost);
         Student current = studentService.getById(id);
