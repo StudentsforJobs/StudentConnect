@@ -15,7 +15,7 @@ export default class HomePageView extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this._fetchPost()
   }
 
@@ -40,7 +40,7 @@ export default class HomePageView extends Component {
       <div className='wrapper'>
         <NavBar />
         <UserDetailCard />
-        <PostForm handleSubmit={this._handleSubmit}/>
+        <PostForm _handleSubmit={this._handleSubmit}/>
         <PostListItem students={this.state.students}/>
 
       </div>

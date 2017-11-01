@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import PostForm from './PostForm';
 import '../styles/homepageview.css';
-import postdata from '../postdata';
-import axios from 'axios';
 
 export default class PostListItem extends Component {
   constructor(props){
