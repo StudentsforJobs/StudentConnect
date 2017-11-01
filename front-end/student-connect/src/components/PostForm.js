@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import '../styles/homepageview.css'
 export default class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    content: [],
-    subject: ''
+      content: '',
+      subject: ''
     }
+    this._clearStatus = this._clearStatus.bind(this)
   }
-
 
   _handleStatus = (evt) => {
     // console.log(evt.target.value);
     this.setState({content: evt.target.value})
   }
 
-_handleStatusSubject = (evt) => {
-  this.setState({subject: evt.target.value})
-}
+  _handleStatusSubject = (evt) => {
+    this.setState({subject: evt.target.value})
+  }
 
-
+  _clearStatus = () => {
+    this.setState({content: ''})
+  }
 
   _submitPost = (evt) => {
+    const that = this;
     evt.preventDefault()
     axios.post(`http://localhost:8080/home/${JSON.parse(localStorage.getItem('student')).id}`, {
       content: this.state.content,
@@ -32,35 +35,37 @@ _handleStatusSubject = (evt) => {
       teacherTitle: this._getStudent().teacherTitle,
       subject: "Geometry",
       timeStamp: this._getStudent().timeStamp
-    })
-    .then(res =>{
+    }).then(res => {
       console.log("res data", res);
       this.props._handleSubmit(res.data)
+      that._clearStatus()
+      console.log(this.state);
     })
-    }
+  }
 
-    _getStudent(){
+  _getStudent() {
     return JSON.parse(localStorage.getItem('student'))
-    }
+  }
 
-    _makeSubjects() {
+  _makeSubjects() {
     let subs = this._getStudent().subjects
     return subs.map((item, idx) => <option key={item.id}>{item.name}</option>)
-    }
+  }
 
-    _getBuildOptions () {
-    return (<select onChange={this._handleStatusSubject}>
-      {this._makeSubjects()}
-    </select>)
-    }
+  _getBuildOptions() {
+    return (
+      <select onChange={this._handleStatusSubject}>
+        {this._makeSubjects()}
+      </select>
+    )
+  }
 
   render() {
     // console.log(this);
     return (
       <div className="statusPost d-flex justify-content">
-        <form  onSubmit={this._submitPost}>
-          <input type="text" onChange={this._handleStatus} className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1"/>
-            {this._getBuildOptions()}
+        <form onSubmit={this._submitPost}>
+          <input type="text" onChange={this._handleStatus} className="form-control" placeholder="Share an article, photo, or idea" aria-describedby="basic-addon1" value={this.state.content}/> {this._getBuildOptions()}
           <button type="submit" className="btn  btn-sm post-button">Post</button>
 
         </form>
