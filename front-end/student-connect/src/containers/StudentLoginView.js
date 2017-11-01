@@ -17,7 +17,7 @@ export default class Login extends Component {
 
   _fetchStudents = () => {
     axios.get('http://localhost:8080/student').then(res => {
-      // console.log(res);
+      console.log(res);
     })
   }
 
@@ -29,31 +29,27 @@ export default class Login extends Component {
     this.setState({password: evt.target.value})
   }
 
-_onSubmit = (evt) => {
-  evt.preventDefault();
-  axios.post('http://localhost:8080/login', {
-    username: this.state.userName,
-    password: this.state.password
-  })
-  .then(res => {
-    // console.log(res);
-    window.localStorage.setItem('student', JSON.stringify(res.data))
-    this.props.history.push('/home/' + res.data.id)
-  })
-  .catch(res => {
-    console.log('invalid login info');
-  })
-}
-
+  _onSubmit = (evt) => {
+    evt.preventDefault();
+    axios.post('http://localhost:8080/login', {
+      username: this.state.userName,
+      password: this.state.password
+    }).then(res => {
+      console.log(res);
+      window.localStorage.setItem('student', JSON.stringify(res.data))
+      this.props.history.push('/home/' + res.data.id)
+    }).catch(res => {
+      console.log('invalid login info');
+    })
+  }
 
   render() {
-    // console.log(this.props);
     return (
       <div className="form">
         <div className="jumbotron" id="login">
-            <div className="container d-flex flex-column welcome-ctr d-flex flex-row justify-content mx-auto">
-              <img src="/studentconnect.png" alt="" className="student-connect-img"/>
-              <h1 className="display-3 ">Welcome!</h1>
+          <div className="container d-flex flex-column welcome-ctr d-flex flex-row justify-content mx-auto">
+            <img src="/studentconnect.png" alt="" className="student-connect-img"/>
+            <h1 className="display-3 ">Welcome!</h1>
           </div>
           <p className="lead">Log In Below!</p>
           <hr className="my-4"/>

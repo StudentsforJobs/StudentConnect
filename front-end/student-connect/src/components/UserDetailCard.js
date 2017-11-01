@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import '../styles/homepageview.css'
 export default class UserDetailCard extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       id: 0,
@@ -14,8 +14,7 @@ export default class UserDetailCard extends Component {
 
   componentDidMount() {
     const that = this;
-    axios.get(`http://localhost:8080/home`)
-    .then(res => {
+    axios.get(`http://localhost:8080/home`).then(res => {
       const student = this._getStudent()
       console.log(res);
       that.setState({currentStudent: student})
@@ -24,21 +23,21 @@ export default class UserDetailCard extends Component {
   _getStudent = () => {
     const student = JSON.parse(localStorage.getItem('student'))
     console.log(student)
-  return student
-}
+    return student
+  }
 
-render(){
+  render() {
 
-  return(
-  <div className="profile-card" >
-    <img className="card-img-top profile-image" src={`/images/student-${this.state.currentStudent.id}.jpg`} alt="student"/>
-    <div className="card-block">
-      <h4 className="card-title">{this.state.currentStudent.firstName} {this.state.currentStudent.lastName}</h4>
-      <p className="card-text">Iron Yard High School</p>
-      <a href="#" className="btn profile-btn">Go to profile</a>
-    </div>
-  </div>
-)
-}
+    return (
+      <div className="profile-card">
+        <img className="card-img-top profile-image" src={`/images/student-${this.state.currentStudent.id}.jpg`} alt="student"/>
+        <div className="card-block">
+          <h4 className="card-title">{this.state.currentStudent.firstName} {this.state.currentStudent.lastName}</h4>
+          <p className="card-text">Iron Yard High School</p>
+          <a href="#" className="btn profile-btn">Go to profile</a>
+        </div>
+      </div>
+    )
+  }
 
 }

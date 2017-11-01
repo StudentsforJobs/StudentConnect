@@ -3,23 +3,23 @@ import PostForm from './PostForm';
 import '../styles/homepageview.css';
 
 export default class PostListItem extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      students: [],
+      students: []
     }
   }
 
-
   render() {
-console.log(this.props);
+    console.log(this.props);
     const data = this.props.students.map((student) => {
       return (
         <div className="list-group" key={student.id}>
           <ul href="#" className="status-list">
             <li className="d-flex flex-column">
               <span>
-                <h5 className=" text-left">{student.teacherTitle}  {student.firstName} {student.lastName}</h5>
+                <h5 className=" text-left">{student.teacherTitle} {student.firstName}
+                  {student.lastName}</h5>
 
               </span>
               <p className="list-group-item-text post-status">{student.content}</p>
@@ -34,7 +34,7 @@ console.log(this.props);
       )
 
     })
-    return(
+    return (
       <div className="status-post">
         <div className="list">
           {data}
